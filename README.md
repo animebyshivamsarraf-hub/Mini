@@ -1,23 +1,38 @@
-# Mini Autonomous Agent
+# Mini AI — Autonomous Agent Foundation
 
-Mobile-first scaffold for a multi-step task orchestrator hosted on Vercel.
+Mobile-first Next.js foundation for a multi-step AI task orchestrator.
 
-## Current state
-- Responsive task dashboard and honest integration-readiness endpoint.
-- Input validation and bounded task size.
-- Explicitly refuses to claim execution when database/model/MCP integration is missing.
-- Environment-variable template only; no credentials are committed.
+## Current implementation
+
+- Responsive task dashboard.
+- Input validation and honest readiness responses.
+- Authenticated MCP JSON-RPC endpoint at `/api/mcp`.
+- PostgreSQL-backed task records through `lib/task-store.ts`.
+- MCP tools: `create_task`, `get_task`, `list_tasks`, and `system_status`.
+- Task status remains `queued` until an execution worker is implemented and configured.
+
+## Required server environment
+
+- `DATABASE_URL`: managed PostgreSQL connection string.
+- `MINI_MCP_API_KEY`: long random secret used as the MCP Bearer token.
+
+Optional future integrations must be configured separately and stored only in server-side environment settings. Do not commit credentials or copy browser cookies/passwords.
 
 ## Important integration boundary
-A ChatGPT app/plugin connection and a Claude app/plugin connection are not automatically callable by a separately deployed Vercel server. The agent needs supported server-side APIs or explicit, authorized remote MCP endpoints. Do not copy browser cookies or app passwords. This scaffold does not yet forward work between ChatGPT and Claude.
 
-## Required configuration before real autonomous execution
-1. Connect a Postgres database and set `DATABASE_URL` in Vercel.
-2. Configure a supported AI execution route and set `AI_GATEWAY_API_KEY` server-side.
-3. If using MCP, set `MCP_SERVER_URL` and `MCP_SERVER_TOKEN` only for an endpoint you control or are authorized to call.
-4. Implement/verify the database schema, durable job queue, tool allowlist, idempotency, retry/backoff, deadlines, and completion tests before enabling unattended writes/deployments.
+A ChatGPT app/plugin connection and a Claude app/plugin connection are not automatically callable by a separately deployed server. Mini AI requires a deployed, authorized MCP endpoint and explicit API credentials or remote MCP permissions for the services it uses.
+
+## Current limitations
+
+This is not yet a complete autonomous agent. Durable workers, model execution, external tool adapters, OAuth/user isolation, approval flows, retry scheduling, automated integration tests, and live deployment verification remain to be implemented. Never treat a queued task as completed.
+
+See [Production Foundation](docs/PRODUCTION_FOUNDATION.md) for the current scope, configuration and next milestones.
 
 ## Run locally
-`npm install && npm run dev`
 
-Copy `.env.example` to `.env.local` and fill secrets locally. Never commit `.env.local`.
+```bash
+npm install
+npm run dev
+```
+
+Copy the environment template to `.env.local` and fill secrets locally. Never commit `.env.local`.

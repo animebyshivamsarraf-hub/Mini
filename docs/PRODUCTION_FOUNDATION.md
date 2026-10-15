@@ -2,13 +2,14 @@
 
 ## Current milestone
 
-This branch adds an authenticated MCP task-management surface and a PostgreSQL-backed task store. It is a foundation, not the complete autonomous agent system.
+This branch adds a Streamable HTTP MCP endpoint using Vercel Labs `mcp-handler` and the official MCP TypeScript SDK, plus a PostgreSQL-backed task store. This is a foundation, not the complete autonomous agent system.
 
 ### Implemented in this milestone
-- `POST /api/mcp`: JSON-RPC MCP endpoint protected by a server-side Bearer key.
-- `initialize`, `ping`, `tools/list`, and task-management `tools/call` methods.
-- Tools: `create_task`, `get_task`, `list_tasks`, and `system_status`.
+- `/api/mcp`: MCP route protected by a server-side Bearer key.
+- One tool: `create_task`.
+- Input validation for a `prompt` between 3 and 8,000 characters.
 - Persistent task records in PostgreSQL, created on demand by the store.
+- The tool returns the saved task ID and actual status.
 - Task status is explicitly `queued` until an execution worker is built and configured.
 - No API credentials are committed.
 
@@ -23,7 +24,7 @@ Set these only in the hosting provider's encrypted server-side environment setti
 
 After a real deployment is available, configure the MCP client with the verified endpoint `https://<deployed-host>/api/mcp` and Bearer authentication. Do not use a guessed or placeholder production URL.
 
-The endpoint currently supports JSON-RPC POST requests. Verify compatibility with the target MCP client before treating it as production-connected.
+The handler is based on `mcp-handler@1.1.0` and `@modelcontextprotocol/sdk@1.26.0`. Verify compatibility with the intended MCP client after the build and live endpoint tests pass.
 
 ## What is not implemented yet
 
@@ -39,11 +40,12 @@ Do not label a queued task as completed. A production release must add the missi
 
 ## Recommended next milestones
 
-1. Provision a database in an explicitly selected region and configure `DATABASE_URL`.
-2. Deploy to a verified host and configure `MINI_MCP_API_KEY`.
-3. Test MCP initialize, tools/list, create_task, get_task and list_tasks against the live endpoint.
-4. Add an execution worker with bounded retries, timeouts, idempotency, and durable status updates.
-5. Add one AI provider adapter and test a non-destructive text-only task.
-6. Add explicit per-tool allowlists and approval gates.
-7. Add account authentication and tenant isolation before multi-user use.
-8. Add GitHub/Vercel adapters, audit logs, tests, monitoring, and recovery procedures.
+1. Confirm the MCP route builds and the single `create_task` tool is listed correctly.
+2. Provision a database in an explicitly selected region and configure `DATABASE_URL`.
+3. Configure `MINI_MCP_API_KEY` in the hosting provider's encrypted environment.
+4. Test MCP initialization, tool discovery, authorized and unauthorized requests, and task persistence.
+5. Add an execution worker with bounded retries, timeouts, idempotency, and durable status updates.
+6. Add one AI provider adapter and test a non-destructive text-only task.
+7. Add explicit per-tool allowlists and approval gates.
+8. Add account authentication and tenant isolation before multi-user use.
+9. Add GitHub/Vercel adapters, audit logs, tests, monitoring, and recovery procedures.

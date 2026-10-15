@@ -26,7 +26,7 @@ A ChatGPT app/plugin connection and a Claude app/plugin connection are not autom
 
 This is not yet a complete autonomous agent. Durable workers, model execution, external tool adapters, OAuth/user isolation, approval flows, retry scheduling, automated integration tests, and live deployment verification remain to be implemented. Never treat a queued task as completed.
 
-See [Production Foundation](docs/PRODUCTION_FOUNDATION.md) for the current scope, configuration and next milestones.
+See [Production Foundation](docs/PRODUCTION_FOUNDATION.md) for the current scope and setup, and [Integration Matrix](docs/INTEGRATION_MATRIX.md) for the recommended open-source component choices.
 
 ## Run locally
 

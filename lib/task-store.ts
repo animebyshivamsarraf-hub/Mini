@@ -34,7 +34,7 @@ function getSql(): SqlClient {
 
 export async function ensureTaskSchema(): Promise<void> {
   const sql = getSql();
-  await sql\`
+  await sql`
     CREATE TABLE IF NOT EXISTS mini_tasks (
       id text PRIMARY KEY,
       title text NOT NULL,
@@ -46,8 +46,8 @@ export async function ensureTaskSchema(): Promise<void> {
       created_at timestamptz NOT NULL DEFAULT now(),
       updated_at timestamptz NOT NULL DEFAULT now()
     )
-  \`;
-  await sql\`CREATE INDEX IF NOT EXISTS mini_tasks_created_at_idx ON mini_tasks (created_at DESC)\`;
+  `;
+  await sql`CREATE INDEX IF NOT EXISTS mini_tasks_created_at_idx ON mini_tasks (created_at DESC)`;
 }
 
 function mapTask(row: Record<string, unknown>): MiniTask {
@@ -70,21 +70,21 @@ export async function createTask(prompt: string): Promise<MiniTask> {
   await ensureTaskSchema();
   const sql = getSql();
   const title = clean.split(/\r?\n/)[0].slice(0, 120) || "Untitled task";
-  const rows = await sql\`
+  const rows = await sql`
     INSERT INTO mini_tasks (id, title, prompt, status)
     VALUES (${randomUUID()}, ${title}, ${clean}, 'queued')
     RETURNING id, title, prompt, status, result, error, created_at, updated_at
-  \`;
+  `;
   return mapTask(rows[0] as Record<string, unknown>);
 }
 
 export async function getTask(id: string): Promise<MiniTask | null> {
   await ensureTaskSchema();
   const sql = getSql();
-  const rows = await sql\`
+  const rows = await sql`
     SELECT id, title, prompt, status, result, error, created_at, updated_at
     FROM mini_tasks WHERE id = ${id} LIMIT 1
-  \`;
+  `;
   return rows.length ? mapTask(rows[0] as Record<string, unknown>) : null;
 }
 
@@ -92,9 +92,9 @@ export async function listTasks(limit = 20): Promise<MiniTask[]> {
   await ensureTaskSchema();
   const sql = getSql();
   const safeLimit = Math.max(1, Math.min(50, Math.floor(limit)));
-  const rows = await sql\`
+  const rows = await sql`
     SELECT id, title, prompt, status, result, error, created_at, updated_at
     FROM mini_tasks ORDER BY created_at DESC LIMIT ${safeLimit}
-  \`;
+  `;
   return rows.map((row) => mapTask(row as Record<string, unknown>));
 }

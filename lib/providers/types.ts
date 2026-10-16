@@ -20,6 +20,8 @@ export interface ProviderCallOptions {
   timeoutMs?: number;
   /** System prompt override */
   systemPrompt?: string;
+  /** Model override (must be in listModels()) */
+  model?: string;
 }
 
 export interface ProviderCallResult {

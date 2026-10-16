@@ -14,7 +14,8 @@ import type {
 } from "./types";
 
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
-const DEFAULT_MODEL = "llama-3.3-70b-versatile";
+// User-selected model (verified real on Groq API, Preview status, 131K context)
+const DEFAULT_MODEL = "qwen/qwen3.8-27b";
 const DEFAULT_TIMEOUT_MS = 30_000;
 
 function getApiKey(): string | null {
@@ -36,10 +37,12 @@ export class GroqProvider implements AIProvider {
 
   listModels(): string[] {
     return [
+      "qwen/qwen3.8-27b",
+      "qwen/qwen3-32b",
       "llama-3.3-70b-versatile",
       "llama-3.1-8b-instant",
-      "mixtral-8x7b-32768",
-      "gemma2-9b-it",
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
     ];
   }
 
@@ -61,12 +64,13 @@ export class GroqProvider implements AIProvider {
     }
 
     const timeoutMs = opts.timeoutMs ?? DEFAULT_TIMEOUT_MS;
+    const model = opts.model ?? DEFAULT_MODEL;
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
 
     try {
       const body = {
-        model: DEFAULT_MODEL,
+        model,
         messages: [
           ...(opts.systemPrompt
             ? [{ role: "system", content: opts.systemPrompt }]
@@ -128,7 +132,7 @@ export class GroqProvider implements AIProvider {
       return {
         ok: true,
         text,
-        model: data.model ?? DEFAULT_MODEL,
+        model: data.model ?? model,
         usage: data.usage
           ? {
               promptTokens: data.usage.prompt_tokens,

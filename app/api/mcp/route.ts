@@ -2,6 +2,7 @@ import { timingSafeEqual } from "node:crypto";
 import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import { createTask } from "@/lib/task-store";
+import { isRateLimited, getClientIp } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -105,6 +106,24 @@ const mcpHandler = createMcpHandler(
 );
 
 async function authenticatedHandler(request: Request): Promise<Response> {
+  // Rate limiting: 60 req/min per IP, per-instance (in-memory).
+  // NOTE: On serverless (Vercel), each instance has its own counter.
+  // This is NOT a global limit. For shared/global protection,
+  // use Redis or Vercel KV. This prevents single-instance abuse.
+  const ip = getClientIp(request);
+  if (isRateLimited(ip)) {
+    return Response.json(
+      { error: "Rate limit exceeded. Try again in a minute." },
+      {
+        status: 429,
+        headers: {
+          "Cache-Control": "no-store",
+          "Retry-After": "60",
+        },
+      },
+    );
+  }
+
   if (!hasValidBearerToken(request)) {
     return Response.json(
       { error: "Unauthorized. A valid Mini Bearer token is required." },

@@ -25,6 +25,9 @@ function getSql(): SqlClient {
       max: 5,
       idle_timeout: 20,
       connect_timeout: 10,
+      // Note: postgres driver handles idle/connect timeouts.
+      // Query-level timeouts enforced via AbortSignal in callers
+      // where critical. No uncontrolled retries in this codebase.
       ssl: process.env.NODE_ENV === "production" ? "require" : false,
       prepare: false,
     });

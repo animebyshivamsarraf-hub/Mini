@@ -1,29 +1,21 @@
-import { listProviders } from "@/lib/providers";
+import { providerStatusSummary } from "@/lib/providers/registry";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /**
- * GET /api/providers — list AI providers and their configuration status.
- * Never exposes API keys. Unconfigured providers honestly report so.
+ * GET /api/providers — list AI providers and their honest configuration status.
+ * Never exposes API keys. Unconfigured providers report "not_configured".
  */
 export async function GET(request: Request) {
   const expected = process.env.MINI_MCP_API_KEY;
   const auth = request.headers.get("authorization") ?? "";
-  // Allow public read of provider *status* (no keys exposed),
-  // but require auth for consistency with other endpoints.
   if (!expected || auth !== `Bearer ${expected}`) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const providers = listProviders().map((p) => ({
-    id: p.id,
-    name: p.name,
-    models: p.models,
-    defaultModel: p.defaultModel,
-    configured: p.configured,
-    reason: p.configured ? undefined : (p as { reason: string }).reason,
-  }));
-
-  return Response.json({ providers });
+  return Response.json({
+    providers: providerStatusSummary(),
+    note: "not_configured = set the provider's API key as a server-side env var.",
+  });
 }

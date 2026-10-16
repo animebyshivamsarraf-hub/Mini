@@ -1,78 +1,123 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
+import { timingSafeEqual } from "node:crypto";
+import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
-import { validateBearerToken, unauthorizedResponse } from "@/lib/mcp-auth";
-import { validatePrompt } from "@/lib/validation";
-import { createTask } from "@/lib/db";
+import { createTask } from "@/lib/task-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function buildServer() {
-  const server = new McpServer({ name: "mini-mcp", version: "0.1.0" });
+function hasValidBearerToken(request: Request): boolean {
+  const expected = process.env.MINI_MCP_API_KEY;
+  if (!expected) return false;
 
-  server.tool(
-    "create_task",
-    "Create a new task in the Mini task queue. The task is persisted to PostgreSQL with status 'queued'.",
-    { prompt: z.string().describe("Task description (3-8000 characters)") },
-    async ({ prompt }) => {
-      const v = validatePrompt(prompt);
-      if (!v.ok) {
-        return {
-          content: [{ type: "text" as const, text: JSON.stringify({ error: v.error }) }],
-          isError: true,
-        };
-      }
-      try {
-        const task = await createTask(prompt.trim());
-        return {
-          content: [
-            {
-              type: "text" as const,
-              text: JSON.stringify({ task_id: task.id, status: task.status }),
-            },
-          ],
-        };
-      } catch (e) {
-        const msg = e instanceof Error ? e.message : "Database error";
-        return {
-          content: [{ type: "text" as const, text: JSON.stringify({ error: msg }) }],
-          isError: true,
-        };
-      }
-    }
+  const authorization = request.headers.get("authorization") ?? "";
+  const supplied = authorization.startsWith("Bearer ")
+    ? authorization.slice("Bearer ".length).trim()
+    : "";
+
+  if (!supplied) return false;
+
+  const suppliedBytes = Buffer.from(supplied);
+  const expectedBytes = Buffer.from(expected);
+
+  return (
+    suppliedBytes.length === expectedBytes.length &&
+    timingSafeEqual(suppliedBytes, expectedBytes)
   );
-
-  return server;
 }
 
-async function handle(req: Request) {
-  // Bearer token auth — required for ALL MCP requests
-  if (!validateBearerToken(req.headers.get("authorization"))) {
-    return unauthorizedResponse();
+const mcpHandler = createMcpHandler(
+  (server) => {
+    server.registerTool(
+      "create_task",
+      {
+        title: "Create Mini task",
+        description:
+          "Store a task in Mini's PostgreSQL task queue. This records the task as queued; it does not execute the task or claim completion.",
+        inputSchema: {
+          // Accept any string here; validate manually below so invalid prompts
+          // return a proper isError response instead of hanging (mcp-handler v1 bug).
+          prompt: z.string(),
+        },
+      },
+      async ({ prompt }) => {
+        // Manual validation: 3-8000 chars after trim
+        const trimmed = typeof prompt === "string" ? prompt.trim() : "";
+        if (trimmed.length === 0) {
+          return {
+            isError: true,
+            content: [{ type: "text", text: "prompt must not be empty" }],
+          };
+        }
+        if (trimmed.length < 3) {
+          return {
+            isError: true,
+            content: [{ type: "text", text: "prompt must be at least 3 characters" }],
+          };
+        }
+        if (prompt.length > 8000) {
+          return {
+            isError: true,
+            content: [{ type: "text", text: "prompt must not exceed 8000 characters" }],
+          };
+        }
+        try {
+          const task = await createTask(trimmed);
+          return {
+            content: [
+              {
+                type: "text",
+                text: JSON.stringify(
+                  {
+                    task_id: task.id,
+                    title: task.title,
+                    status: task.status,
+                    created_at: task.created_at,
+                    message:
+                      "Task saved successfully. It remains queued until a background worker is implemented and configured.",
+                  },
+                  null,
+                  2,
+                ),
+              },
+            ],
+          };
+        } catch {
+          return {
+            isError: true,
+            content: [
+              {
+                type: "text",
+                text:
+                  "Mini could not save the task. Check that DATABASE_URL is configured and the PostgreSQL database is reachable.",
+              },
+            ],
+          };
+        }
+      },
+    );
+  },
+  {},
+  {
+    basePath: "/api",
+    verboseLogs: false,
+  },
+);
+
+async function authenticatedHandler(request: Request): Promise<Response> {
+  if (!hasValidBearerToken(request)) {
+    return Response.json(
+      { error: "Unauthorized. A valid Mini Bearer token is required." },
+      {
+        status: 401,
+        headers: { "Cache-Control": "no-store" },
+      },
+    );
   }
 
-  const server = buildServer();
-  const transport = new WebStandardStreamableHTTPServerTransport({
-    sessionIdGenerator: undefined, // stateless mode
-  });
-
-  await server.connect(transport);
-  try {
-    return await transport.handleRequest(req);
-  } finally {
-    // Don't close the server here — transport handles lifecycle per-request
-  }
+  return mcpHandler(request);
 }
 
-export async function POST(req: Request) {
-  return handle(req);
-}
-
-export async function GET(req: Request) {
-  return handle(req);
-}
-
-export async function DELETE(req: Request) {
-  return handle(req);
-}
+export const GET = authenticatedHandler;
+export const POST = authenticatedHandler;
+export const DELETE = authenticatedHandler;

@@ -3,6 +3,7 @@ import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import { createTask } from "@/lib/task-store";
 import { isRateLimited, getClientIp } from "@/lib/rate-limit";
+import { mimiAsk } from "@/lib/mimi-brain";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -93,6 +94,35 @@ const mcpHandler = createMcpHandler(
                   "Mini could not save the task. Check that DATABASE_URL is configured and the PostgreSQL database is reachable.",
               },
             ],
+          };
+        }
+      },
+    );
+
+    // Mini 1 (Mimi) ka tool — ab Mini 2 me joined.
+    // Rule-based brain: greeting, naam, time, date, joke, thanks, bye.
+    // Groq AI Mini 2 par abhi configured nahi — honest note response me hai.
+    server.registerTool(
+      "mimi_ask",
+      {
+        title: "Ask Mimi (Mini 1)",
+        description:
+          "Ask Mini 1 (Mimi), the cute robot companion, a question. Rule-based brain answers in Hindi/Hinglish. Ported from Mini 1's MCP bridge.",
+        inputSchema: {
+          question: z.string(),
+          session_id: z.string().optional(),
+        },
+      },
+      async ({ question, session_id }) => {
+        try {
+          const result = mimiAsk(question ?? "", session_id ?? "");
+          return {
+            content: [{ type: "text", text: result }],
+          };
+        } catch {
+          return {
+            isError: true,
+            content: [{ type: "text", text: "Mimi could not answer right now." }],
           };
         }
       },

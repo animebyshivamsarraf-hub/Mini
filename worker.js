@@ -1,1 +1,62 @@
-LyogTWluaSBBSSDigJQgQ2xvdWRmbGFyZSBXb3JrZXIgcHJveHkgKGFsdGVybmF0aXZlIHRvIGFwaS9wcm94eS5weSkuCiAgIERlcGxveTogYG5weCB3cmFuZ2xlciBkZXBsb3lgICAoa2V5czogYG5weCB3cmFuZ2xlciBzZWNyZXQgcHV0IEdFTUlOSV9BUElfS0VZYCkKICAgS2V5cyBzaXJmIFdvcmtlciBlbnYvc2VjcmV0cyBtZS4gRnJvbnRlbmQga28ga2V5IGthYmhpIG5haGkgbWlsdGkuICovCgpjb25zdCBTWVMgPSAnVHVtIE1pbmkgQUkgaG8g4oCUIGhlbHBmdWwgQUkgYXNzaXN0YW50LiBIaW5kaS9IaW5nbGlzaCBtZSBqYXdhYiBkbyBqYWIgdXNlciB1c2kgbWUgYm9sZS4nOwpjb25zdCBBTExPV0VEID0gewogIGdlbWluaTogJ2h0dHBzOi8vZ2VuZXJhdGl2ZWxhbmd1YWdlLmdvb2dsZWFwaXMuY29tJywKICBncm9xOiAnaHR0cHM6Ly9hcGkuZ3JvcS5jb20nLAp9OwoKZXhwb3J0IGRlZmF1bHQgewogIGFzeW5jIGZldGNoKHJlcSwgZW52KSB7CiAgICBjb25zdCB1cmwgPSBuZXcgVVJMKHJlcS51cmwpOwogICAgaWYgKHVybC5wYXRobmFtZSAhPT0gJy9hcGkvcHJveHknIHx8IHJlcS5tZXRob2QgIT09ICdQT1NUJykKICAgICAgcmV0dXJuIGpzb24oNDA0LCB7IGVycm9yOiAnTm90IGZvdW5kJyB9KTsKICAgIGxldCBib2R5OwogICAgdHJ5IHsgYm9keSA9IGF3YWl0IHJlcS5qc29uKCk7IH0gY2F0Y2ggeyByZXR1cm4ganNvbig0MDAsIHsgZXJyb3I6ICdJbnZhbGlkIEpTT04nIH0pOyB9CiAgICBjb25zdCBwcm92aWRlciA9IChib2R5LnByb3ZpZGVyIHx8ICcnKS50b0xvd2VyQ2FzZSgpOwogICAgY29uc3QgbWVzc2FnZXMgPSBBcnJheS5pc0FycmF5KGJvZHkubWVzc2FnZXMpID8gYm9keS5tZXNzYWdlcyA6IFtdOwogICAgaWYgKCFBTExPV0VEW3Byb3ZpZGVyXSkgcmV0dXJuIGpzb24oNDAwLCB7IGVycm9yOiAncHJvdmlkZXIgbXVzdCBiZSBnZW1pbmkgb3IgZ3JvcScgfSk7CiAgICBpZiAoIW1lc3NhZ2VzLmxlbmd0aCkgcmV0dXJuIGpzb24oNDAwLCB7IGVycm9yOiAnbWVzc2FnZXMga2hhYWxpIGhhaW4nIH0pOwoKICAgIHRyeSB7CiAgICAgIGxldCB0ZXh0OwogICAgICBpZiAocHJvdmlkZXIgPT09ICdnZW1pbmknKSB7CiAgICAgICAgY29uc3Qga2V5ID0gZW52LkdFTUlOSV9BUElfS0VZOwogICAgICAgIGlmICgha2V5KSByZXR1cm4ganNvbig1MDMsIHsgZXJyb3I6ICdHRU1JTklfQVBJX0tFWSBzZWNyZXQgc2V0IG5haGkgaGFpLicgfSk7CiAgICAgICAgY29uc3QgciA9IGF3YWl0IGZldGNoKEFMTE9XRUQuZ2VtaW5pICsgJy92MWJldGEvbW9kZWxzL2dlbWluaS0yLjAtZmxhc2g6Z2VuZXJhdGVDb250ZW50P2tleT0nICsgZW5jb2RlVVJJQ29tcG9uZW50KGtleSksIHsKICAgICAgICAgIG1ldGhvZDogJ1BPU1QnLCBoZWFkZXJzOiB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSwKICAgICAgICAgIGJvZHk6IEpTT04uc3RyaW5naWZ5KHsKICAgICAgICAgICAgc3lzdGVtX2luc3RydWN0aW9uOiB7IHBhcnRzOiBbeyB0ZXh0OiBTWVMgfV0gfSwKICAgICAgICAgICAgY29udGVudHM6IG1lc3NhZ2VzLm1hcChtID0+ICh7IHJvbGU6IG0ucm9sZSA9PT0gJ2Fzc2lzdGFudCcgPyAnbW9kZWwnIDogJ3VzZXInLCBwYXJ0czogW3sgdGV4dDogU3RyaW5nKG0uY29udGVudCB8fCAnJykuc2xpY2UoMCwgODAwMCkgfV0gfSkpLAogICAgICAgICAgfSksCiAgICAgICAgfSk7CiAgICAgICAgaWYgKCFyLm9rKSByZXR1cm4ganNvbig1MDIsIHsgZXJyb3I6ICdHZW1pbmkgSFRUUCAnICsgci5zdGF0dXMgfSk7CiAgICAgICAgY29uc3QgaiA9IGF3YWl0IHIuanNvbigpOwogICAgICAgIHRleHQgPSAoai5jYW5kaWRhdGVzPy5bMF0/LmNvbnRlbnQ/LnBhcnRzIHx8IFtdKS5tYXAocCA9PiBwLnRleHQgfHwgJycpLmpvaW4oJycpOwogICAgICB9IGVsc2UgewogICAgICAgIGNvbnN0IGtleSA9IGVudi5HUk9RX0FQSV9LRVk7CiAgICAgICAgaWYgKCFrZXkpIHJldHVybiBqc29uKDUwMywgeyBlcnJvcjogJ0dST1FfQVBJX0tFWSBzZWNyZXQgc2V0IG5haGkgaGFpLicgfSk7CiAgICAgICAgY29uc3QgciA9IGF3YWl0IGZldGNoKEFMTE9XRUQuZ3JvcSArICcvb3BlbmFpL3YxL2NoYXQvY29tcGxldGlvbnMnLCB7CiAgICAgICAgICBtZXRob2Q6ICdQT1NUJywgaGVhZGVyczogeyAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nLCAnQXV0aG9yaXphdGlvbic6ICdCZWFyZXIgJyArIGtleSB9LAogICAgICAgICAgYm9keTogSlNPTi5zdHJpbmdpZnkoewogICAgICAgICAgICBtb2RlbDogJ2xsYW1hLTMuMy03MGItdmVyc2F0aWxlJywKICAgICAgICAgICAgbWVzc2FnZXM6IFt7IHJvbGU6ICdzeXN0ZW0nLCBjb250ZW50OiBTWVMgfSwgLi4ubWVzc2FnZXMubWFwKG0gPT4gKHsgcm9sZTogbS5yb2xlLCBjb250ZW50OiBTdHJpbmcobS5jb250ZW50IHx8ICcnKS5zbGljZSgwLCA4MDAwKSB9KSldLAogICAgICAgICAgfSksCiAgICAgICAgfSk7CiAgICAgICAgaWYgKCFyLm9rKSByZXR1cm4ganNvbig1MDIsIHsgZXJyb3I6ICdHcm9xIEhUVFAgJyArIHIuc3RhdHVzIH0pOwogICAgICAgIGNvbnN0IGogPSBhd2FpdCByLmpzb24oKTsKICAgICAgICB0ZXh0ID0gai5jaG9pY2VzPy5bMF0/Lm1lc3NhZ2U/LmNvbnRlbnQgfHwgJyc7CiAgICAgIH0KICAgICAgaWYgKCF0ZXh0LnRyaW0oKSkgcmV0dXJuIGpzb24oNTAyLCB7IGVycm9yOiAnUHJvdmlkZXIgc2Uga2hhYWxpIGphd2FiJyB9KTsKICAgICAgcmV0dXJuIGpzb24oMjAwLCB7IHRleHQgfSk7CiAgICB9IGNhdGNoIChlKSB7CiAgICAgIHJldHVybiBqc29uKDUwMCwgeyBlcnJvcjogJ1Byb3h5IGVycm9yOiAnICsgU3RyaW5nKGUpLnNsaWNlKDAsIDEyMCkgfSk7CiAgICB9CiAgfSwKfTsKCmZ1bmN0aW9uIGpzb24oc3RhdHVzLCBvYmopIHsKICByZXR1cm4gbmV3IFJlc3BvbnNlKEpTT04uc3RyaW5naWZ5KG9iaiksIHsgc3RhdHVzLCBoZWFkZXJzOiB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSB9KTsKfQo=
+/* Mini AI — Cloudflare Worker proxy (alternative to api/proxy.py).
+   Deploy: `npx wrangler deploy`  (keys: `npx wrangler secret put GEMINI_API_KEY`)
+   Keys sirf Worker env/secrets me. Frontend ko key kabhi nahi milti. */
+
+const SYS = 'Tum Mini AI ho — helpful AI assistant. Hindi/Hinglish me jawab do jab user usi me bole.';
+const ALLOWED = {
+  gemini: 'https://generativelanguage.googleapis.com',
+  groq: 'https://api.groq.com',
+};
+
+export default {
+  async fetch(req, env) {
+    const url = new URL(req.url);
+    if (url.pathname !== '/api/proxy' || req.method !== 'POST')
+      return json(404, { error: 'Not found' });
+    let body;
+    try { body = await req.json(); } catch { return json(400, { error: 'Invalid JSON' }); }
+    const provider = (body.provider || '').toLowerCase();
+    const messages = Array.isArray(body.messages) ? body.messages : [];
+    if (!ALLOWED[provider]) return json(400, { error: 'provider must be gemini or groq' });
+    if (!messages.length) return json(400, { error: 'messages khaali hain' });
+
+    try {
+      let text;
+      if (provider === 'gemini') {
+        const key = env.GEMINI_API_KEY;
+        if (!key) return json(503, { error: 'GEMINI_API_KEY secret set nahi hai.' });
+        const r = await fetch(ALLOWED.gemini + '/v1beta/models/gemini-2.0-flash:generateContent?key=' + encodeURIComponent(key), {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            system_instruction: { parts: [{ text: SYS }] },
+            contents: messages.map(m => ({ role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: String(m.content || '').slice(0, 8000) }] })),
+          }),
+        });
+        if (!r.ok) return json(502, { error: 'Gemini HTTP ' + r.status });
+        const j = await r.json();
+        text = (j.candidates?.[0]?.content?.parts || []).map(p => p.text || '').join('');
+      } else {
+        const key = env.GROQ_API_KEY;
+        if (!key) return json(503, { error: 'GROQ_API_KEY secret set nahi hai.' });
+        const r = await fetch(ALLOWED.groq + '/openai/v1/chat/completions', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
+          body: JSON.stringify({
+            model: 'llama-3.3-70b-versatile',
+            messages: [{ role: 'system', content: SYS }, ...messages.map(m => ({ role: m.role, content: String(m.content || '').slice(0, 8000) }))],
+          }),
+        });
+        if (!r.ok) return json(502, { error: 'Groq HTTP ' + r.status });
+        const j = await r.json();
+        text = j.choices?.[0]?.message?.content || '';
+      }
+      if (!text.trim()) return json(502, { error: 'Provider se khaali jawab' });
+      return json(200, { text });
+    } catch (e) {
+      return json(500, { error: 'Proxy error: ' + String(e).slice(0, 120) });
+    }
+  },
+};
+
+function json(status, obj) {
+  return new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json' } });
+}

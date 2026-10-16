@@ -1,1 +1,426 @@
-LyogTWluaSBBSSBQaGFzZSAxIOKAlCBDaGF0IGNvcmUuCiAgIEFyY2hpdGVjdHVyZToga2V5cyBORVZFUiBpbiBmcm9udGVuZC4gR2VtaW5pL0dyb3EgZ28gdmlhIC9hcGkvcHJveHkgKHNlcnZlci1zaWRlLCBlbnYgdmFycykuCiAgIFN0cmVhbWluZzogUG9sbGluYXRpb25zIChTU0UpIHllcy4gTU9DSy9wcm94eTogbm8gKHNpbmdsZSByZXNwb25zZSkuICovCid1c2Ugc3RyaWN0JzsKCmNvbnN0IHN0b3JlID0gewogIGdldChrLCBkKSB7IHRyeSB7IGNvbnN0IHYgPSBsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgnbWluaWFpXycgKyBrKTsgcmV0dXJuIHYgPyBKU09OLnBhcnNlKHYpIDogZDsgfSBjYXRjaCB7IHJldHVybiBkOyB9IH0sCiAgc2V0KGssIHYpIHsgdHJ5IHsgbG9jYWxTdG9yYWdlLnNldEl0ZW0oJ21pbmlhaV8nICsgaywgSlNPTi5zdHJpbmdpZnkodikpOyB9IGNhdGNoIHt9IH0KfTsKCi8qIC0tLS0tLS0tLS0gTW9kZWwgYWRhcHRlcnMgLS0tLS0tLS0tLSAqLwpjb25zdCBhZGFwdGVycyA9IHsKICBtb2NrOiB7CiAgICBsYWJlbDogJ01PQ0snLCBzdHJlYW1pbmc6IGZhbHNlLAogICAgYXN5bmMgc2VuZChtZXNzYWdlcywgb25Ub2tlbikgewogICAgICBhd2FpdCBuZXcgUHJvbWlzZShyID0+IHNldFRpbWVvdXQociwgNTAwICsgTWF0aC5yYW5kb20oKSAqIDUwMCkpOwogICAgICBjb25zdCBsYXN0ID0gKG1lc3NhZ2VzW21lc3NhZ2VzLmxlbmd0aC0xXT8uY29udGVudCB8fCAnJykudG9Mb3dlckNhc2UoKS50cmltKCk7CiAgICAgIGxldCByZXBseTsKICAgICAgaWYgKC9eKGhpfGhlbGxvfGhleXxuYW1hc3RlfHJhbSByYW0pLy50ZXN0KGxhc3QpKQogICAgICAgIHJlcGx5ID0gJ05hbWFzdGUhIE1haW4gTWluaSBBSSBodW4gKE1PQ0sgbW9kZSkuIFJlYWwgQUkga2UgbGl5ZSBTZXR0aW5ncyBtZSBQb2xsaW5hdGlvbnMgc2VsZWN0IGthcm8g4oCUIGZyZWUgaGFpLCBrZXkgbmFoaSBjaGFoaXllLic7CiAgICAgIGVsc2UgaWYgKGxhc3QuaW5jbHVkZXMoJ3R1bSBrYXVuJykgfHwgbGFzdC5pbmNsdWRlcygnd2hvIGFyZSB5b3UnKSkKICAgICAgICByZXBseSA9ICdNYWluIE1pbmkgQUkgaHVuIOKAlCBQaGFzZSAxIGNoYXQgY29yZS4gTU9DSyBtb2RlIG1lIHJ1bGUtYmFzZWQgamF3YWIgZGV0YSBodW4uJzsKICAgICAgZWxzZSBpZiAobGFzdC5pbmNsdWRlcygndGltZScpIHx8IGxhc3QuaW5jbHVkZXMoJ3NhbWF5JykgfHwgbGFzdC5pbmNsdWRlcygnYmFqJykpCiAgICAgICAgcmVwbHkgPSAnVHVtaGFyZSBkZXZpY2Uga2EgdGltZTogJyArIG5ldyBEYXRlKCkudG9Mb2NhbGVTdHJpbmcoJ2hpLUlOJyk7CiAgICAgIGVsc2UgaWYgKGxhc3QuaW5jbHVkZXMoJ3BsdWdpbicpKQogICAgICAgIHJlcGx5ID0gJ1BsdWdpbiBzeXN0ZW0gUGhhc2UgMiBtZSBheWVnYS4gV2FoYW4gdHVtIGJvbG9nZSAiY2FsY3VsYXRvciBwbHVnaW4gYmFuYW8iIGF1ciBiYW4gamF5ZWdhLic7CiAgICAgIGVsc2UgaWYgKGxhc3QuaW5jbHVkZXMoJ21jcCcpKQogICAgICAgIHJlcGx5ID0gJ01DUCBjb25uZWN0b3JzIFBoYXNlIDMgbWUgYXllbmdlLic7CiAgICAgIGVsc2UgaWYgKGxhc3QuaW5jbHVkZXMoJ2thaXNlIGhvJykpCiAgICAgICAgcmVwbHkgPSAnTWFpbiBiYWRoaXlhIGh1biEgVHVtIGJhdGFvLCBreWEgcHVjaG5hIGhhaT8gKFllIE1PQ0sgamF3YWIgaGFpIOKAlCByZWFsIEFJIGtlIGxpeWUgUG9sbGluYXRpb25zIHRyeSBrYXJvLiknOwogICAgICBlbHNlCiAgICAgICAgcmVwbHkgPSAnTU9DSyBtb2RlOiBzbWFydCBqYXdhYiBuYWhpIGRlIHNha3RhLiBTZXR0aW5ncyDihpIgUG9sbGluYXRpb25zIHNlbGVjdCBrYXJvIChmcmVlLCBubyBrZXkpLiBUdW1uZSBwdWNoYTogIicgKyBtZXNzYWdlc1ttZXNzYWdlcy5sZW5ndGgtMV0uY29udGVudC5zbGljZSgwLDEwMCkgKyAnIic7CiAgICAgIHJldHVybiByZXBseTsKICAgIH0KICB9LAoKICBwb2xsaW5hdGlvbnM6IHsKICAgIGxhYmVsOiAnUG9sbGluYXRpb25zJywgc3RyZWFtaW5nOiB0cnVlLAogICAgYXN5bmMgc2VuZChtZXNzYWdlcywgb25Ub2tlbikgewogICAgICBjb25zdCByZXMgPSBhd2FpdCBmZXRjaCgnaHR0cHM6Ly90ZXh0LnBvbGxpbmF0aW9ucy5haS9vcGVuYWknLCB7CiAgICAgICAgbWV0aG9kOiAnUE9TVCcsIGhlYWRlcnM6IHsgJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJyB9LAogICAgICAgIGJvZHk6IEpTT04uc3RyaW5naWZ5KHsKICAgICAgICAgIG1vZGVsOiAnb3BlbmFpJywgc3RyZWFtOiB0cnVlLAogICAgICAgICAgbWVzc2FnZXM6IFt7IHJvbGU6ICdzeXN0ZW0nLCBjb250ZW50OiAnVHVtIE1pbmkgQUkgaG8g4oCUIGhlbHBmdWwgQUkgYXNzaXN0YW50LiBVc2VyIEhpbmRpL0hpbmdsaXNoIG1lIGJvbGUgdG8gdXNpIG1lIGphd2FiIGRvLiBDb25jaXNlIGphd2FiIGRvLicgfSwgLi4ubWVzc2FnZXNdCiAgICAgICAgfSkKICAgICAgfSk7CiAgICAgIGlmICghcmVzLm9rKSB0aHJvdyBuZXcgRXJyb3IoJ1BvbGxpbmF0aW9ucyBIVFRQICcgKyByZXMuc3RhdHVzKTsKICAgICAgY29uc3QgcmVhZGVyID0gcmVzLmJvZHkuZ2V0UmVhZGVyKCk7CiAgICAgIGNvbnN0IGRlYyA9IG5ldyBUZXh0RGVjb2RlcigpOwogICAgICBsZXQgYnVmID0gJycsIGZ1bGwgPSAnJzsKICAgICAgd2hpbGUgKHRydWUpIHsKICAgICAgICBjb25zdCB7IGRvbmUsIHZhbHVlIH0gPSBhd2FpdCByZWFkZXIucmVhZCgpOwogICAgICAgIGlmIChkb25lKSBicmVhazsKICAgICAgICBidWYgKz0gZGVjLmRlY29kZSh2YWx1ZSwgeyBzdHJlYW06IHRydWUgfSk7CiAgICAgICAgY29uc3QgbGluZXMgPSBidWYuc3BsaXQoJ1xuJyk7IGJ1ZiA9IGxpbmVzLnBvcCgpOwogICAgICAgIGZvciAoY29uc3QgbGluZSBvZiBsaW5lcykgewogICAgICAgICAgY29uc3QgdCA9IGxpbmUudHJpbSgpOwogICAgICAgICAgaWYgKCF0LnN0YXJ0c1dpdGgoJ2RhdGE6JykpIGNvbnRpbnVlOwogICAgICAgICAgY29uc3QgcGF5bG9hZCA9IHQuc2xpY2UoNSkudHJpbSgpOwogICAgICAgICAgaWYgKHBheWxvYWQgPT09ICdbRE9ORV0nKSBjb250aW51ZTsKICAgICAgICAgIHRyeSB7CiAgICAgICAgICAgIGNvbnN0IGogPSBKU09OLnBhcnNlKHBheWxvYWQpOwogICAgICAgICAgICBjb25zdCB0b2sgPSBqPy5jaG9pY2VzPy5bMF0/LmRlbHRhPy5jb250ZW50OwogICAgICAgICAgICBpZiAodG9rKSB7IGZ1bGwgKz0gdG9rOyBvblRva2VuICYmIG9uVG9rZW4odG9rKTsgfQogICAgICAgICAgfSBjYXRjaCB7fQogICAgICAgIH0KICAgICAgfQogICAgICBpZiAoIWZ1bGwpIHRocm93IG5ldyBFcnJvcignUG9sbGluYXRpb25zIHNlIGtoYWFsaSBqYXdhYicpOwogICAgICByZXR1cm4gZnVsbDsKICAgIH0KICB9LAoKICAvLyBHZW1pbmkgJiBHcm9xOiB2aWEgc2VydmVyLXNpZGUgcHJveHkuIEtleXMgbGl2ZSBpbiBzZXJ2ZXIgZW52IHZhcnMgT05MWS4KICBnZW1pbmk6IHsKICAgIGxhYmVsOiAnR2VtaW5pJywgc3RyZWFtaW5nOiBmYWxzZSwgdmlhUHJveHk6IHRydWUsCiAgICBhc3luYyBzZW5kKG1lc3NhZ2VzKSB7CiAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCcvYXBpL3Byb3h5JywgewogICAgICAgIG1ldGhvZDogJ1BPU1QnLCBoZWFkZXJzOiB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSwKICAgICAgICBib2R5OiBKU09OLnN0cmluZ2lmeSh7IHByb3ZpZGVyOiAnZ2VtaW5pJywgbWVzc2FnZXMgfSkKICAgICAgfSk7CiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpLmNhdGNoKCgpID0+ICh7fSkpOwogICAgICBpZiAoIXJlcy5vaykgdGhyb3cgbmV3IEVycm9yKGRhdGEuZXJyb3IgfHwgKCdQcm94eSBIVFRQICcgKyByZXMuc3RhdHVzKSk7CiAgICAgIGlmICghZGF0YS50ZXh0KSB0aHJvdyBuZXcgRXJyb3IoJ1Byb3h5IHNlIGtoYWFsaSBqYXdhYicpOwogICAgICByZXR1cm4gZGF0YS50ZXh0OwogICAgfQogIH0sCiAgZ3JvcTogewogICAgbGFiZWw6ICdHcm9xJywgc3RyZWFtaW5nOiBmYWxzZSwgdmlhUHJveHk6IHRydWUsCiAgICBhc3luYyBzZW5kKG1lc3NhZ2VzKSB7CiAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCcvYXBpL3Byb3h5JywgewogICAgICAgIG1ldGhvZDogJ1BPU1QnLCBoZWFkZXJzOiB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSwKICAgICAgICBib2R5OiBKU09OLnN0cmluZ2lmeSh7IHByb3ZpZGVyOiAnZ3JvcScsIG1lc3NhZ2VzIH0pCiAgICAgIH0pOwogICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzLmpzb24oKS5jYXRjaCgoKSA9PiAoe30pKTsKICAgICAgaWYgKCFyZXMub2spIHRocm93IG5ldyBFcnJvcihkYXRhLmVycm9yIHx8ICgnUHJveHkgSFRUUCAnICsgcmVzLnN0YXR1cykpOwogICAgICBpZiAoIWRhdGEudGV4dCkgdGhyb3cgbmV3IEVycm9yKCdQcm94eSBzZSBraGFhbGkgamF3YWInKTsKICAgICAgcmV0dXJuIGRhdGEudGV4dDsKICAgIH0KICB9Cn07CgovKiAtLS0tLS0tLS0tIFN0YXRlIC0tLS0tLS0tLS0gKi8KbGV0IGNoYXRzID0gc3RvcmUuZ2V0KCdjaGF0cycsIFtdKTsKbGV0IGFjdGl2ZUlkID0gc3RvcmUuZ2V0KCdhY3RpdmVJZCcsIG51bGwpOwpsZXQgbW9kZWwgPSBzdG9yZS5nZXQoJ21vZGVsJywgJ21vY2snKTsKbGV0IHNlbmRpbmcgPSBmYWxzZSwgYWJvcnRDdHJsID0gbnVsbDsKCmNvbnN0ICQgPSBpZCA9PiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk7CmNvbnN0IG1lc3NhZ2VzRWwgPSAkKCdtZXNzYWdlcycpLCBjaGF0TGlzdEVsID0gJCgnY2hhdExpc3QnKSwgaW5wdXRFbCA9ICQoJ21zZ0lucHV0JyksIGNoYXRBcmVhID0gJCgnY2hhdEFyZWEnKTsKY29uc3QgYWN0aXZlQ2hhdCA9ICgpID0+IGNoYXRzLmZpbmQoYyA9PiBjLmlkID09PSBhY3RpdmVJZCkgfHwgbnVsbDsKY29uc3QgcGVyc2lzdCA9ICgpID0+IHsgc3RvcmUuc2V0KCdjaGF0cycsIGNoYXRzKTsgc3RvcmUuc2V0KCdhY3RpdmVJZCcsIGFjdGl2ZUlkKTsgc3RvcmUuc2V0KCdtb2RlbCcsIG1vZGVsKTsgfTsKCmZ1bmN0aW9uIG5ld0NoYXQoKSB7CiAgY29uc3QgYyA9IHsgaWQ6ICdjJyArIERhdGUubm93KCksIHRpdGxlOiAnTmV3IGNoYXQnLCBjcmVhdGVkOiBEYXRlLm5vdygpLCBtZXNzYWdlczogW10gfTsKICBjaGF0cy51bnNoaWZ0KGMpOyBhY3RpdmVJZCA9IGMuaWQ7IHBlcnNpc3QoKTsgcmVuZGVyQWxsKCk7Cn0KY29uc3QgZXNjID0gcyA9PiBTdHJpbmcocykucmVwbGFjZSgvJi9nLCcmYW1wOycpLnJlcGxhY2UoLzwvZywnJmx0OycpLnJlcGxhY2UoLz4vZywnJmd0OycpOwpmdW5jdGlvbiBmbXQodGV4dCkgewogIGxldCBoID0gZXNjKHRleHQpOwogIGggPSBoLnJlcGxhY2UoL2BgYChcdyopXG4oW1xzXFNdKj8pYGBgL2csIChtLCBsLCBjb2RlKSA9PiAnPHByZT48Y29kZT4nICsgY29kZS5yZXBsYWNlKC9eXG4rfFxuKyQvZywnJykgKyAnPC9jb2RlPjwvcHJlPicpOwogIGggPSBoLnJlcGxhY2UoL2AoW15gXG5dKylgL2csICc8Y29kZT4kMTwvY29kZT4nKTsKICByZXR1cm4gaDsKfQoKZnVuY3Rpb24gcmVuZGVyTWVzc2FnZXMoKSB7CiAgbWVzc2FnZXNFbC5pbm5lckhUTUwgPSAnJzsKICBjb25zdCBjID0gYWN0aXZlQ2hhdCgpOwogIGlmICghYyB8fCAhYy5tZXNzYWdlcy5sZW5ndGgpIHsKICAgIG1lc3NhZ2VzRWwuaW5uZXJIVE1MID0gJzxkaXYgY2xhc3M9ImVtcHR5Ij48c3BhbiBjbGFzcz0iYmlnIj7wn6SWPC9zcGFuPk1pbmkgQUkgbWUgc3dhZ2F0IGhhaSE8YnI+TmVlY2hlIHR5cGUga2Fya2UgcHVjaG8uPC9kaXY+JzsKICAgIHJldHVybjsKICB9CiAgYy5tZXNzYWdlcy5mb3JFYWNoKChtLCBpKSA9PiB7CiAgICBjb25zdCBkaXYgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgIGRpdi5jbGFzc05hbWUgPSAnbXNnICcgKyAobS5yb2xlID09PSAndXNlcicgPyAndXNlcicgOiAnYWknKSArIChtLmVyciA/ICcgZXJyb3InIDogJycpOwogICAgbGV0IGlubmVyID0gZm10KG0uY29udGVudCk7CiAgICBpbm5lciArPSAnPGRpdiBjbGFzcz0ibWV0YSI+JyArIG5ldyBEYXRlKG0udHMpLnRvTG9jYWxlVGltZVN0cmluZygnaGktSU4nLHtob3VyOicyLWRpZ2l0JyxtaW51dGU6JzItZGlnaXQnfSk7CiAgICBpZiAobS5lcnIpIGlubmVyICs9ICcgwrcgPGEgaHJlZj0iIyIgZGF0YS1yZXRyeT0iJyArIGkgKyAnIiBzdHlsZT0iY29sb3I6I2ZmOWQ5ZCI+4oa7IHJldHJ5PC9hPic7CiAgICBpbm5lciArPSAnPC9kaXY+JzsKICAgIGRpdi5pbm5lckhUTUwgPSBpbm5lcjsKICAgIG1lc3NhZ2VzRWwuYXBwZW5kQ2hpbGQoZGl2KTsKICB9KTsKICBtZXNzYWdlc0VsLnF1ZXJ5U2VsZWN0b3JBbGwoJ1tkYXRhLXJldHJ5XScpLmZvckVhY2goYSA9PiB7CiAgICBhLm9uY2xpY2sgPSBlID0+IHsgZS5wcmV2ZW50RGVmYXVsdCgpOyByZXRyeUZyb20ocGFyc2VJbnQoYS5kYXRhc2V0LnJldHJ5KSk7IH07CiAgfSk7CiAgY2hhdEFyZWEuc2Nyb2xsVG9wID0gY2hhdEFyZWEuc2Nyb2xsSGVpZ2h0Owp9CgpmdW5jdGlvbiByZW5kZXJMaXN0KCkgewogIGNoYXRMaXN0RWwuaW5uZXJIVE1MID0gJyc7CiAgY2hhdHMuZm9yRWFjaChjID0+IHsKICAgIGNvbnN0IGQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgIGQuY2xhc3NOYW1lID0gJ2NoYXQtaXRlbScgKyAoYy5pZCA9PT0gYWN0aXZlSWQgPyAnIGFjdGl2ZScgOiAnJyk7CiAgICBkLmlubmVySFRNTCA9IGVzYyhjLnRpdGxlKSArICc8c3BhbiBjbGFzcz0iZHQiPicgKyBuZXcgRGF0ZShjLmNyZWF0ZWQpLnRvTG9jYWxlRGF0ZVN0cmluZygnaGktSU4nKSArICc8L3NwYW4+JzsKICAgIGQub25jbGljayA9ICgpID0+IHsgYWN0aXZlSWQgPSBjLmlkOyBwZXJzaXN0KCk7IHJlbmRlckFsbCgpOyBjbG9zZVNpZGUoKTsgfTsKICAgIGNoYXRMaXN0RWwuYXBwZW5kQ2hpbGQoZCk7CiAgfSk7Cn0KZnVuY3Rpb24gcmVuZGVyQWxsKCkgewogICQoJ21vZGVsQmFkZ2UnKS50ZXh0Q29udGVudCA9IChhZGFwdGVyc1ttb2RlbF0/LmxhYmVsIHx8IG1vZGVsKS50b1VwcGVyQ2FzZSgpOwogIHJlbmRlck1lc3NhZ2VzKCk7IHJlbmRlckxpc3QoKTsKfQoKLyogU3RyZWFtaW5nIGJ1YmJsZSBoZWxwZXJzICovCmZ1bmN0aW9uIHN0YXJ0U3RyZWFtQnViYmxlKCkgewogIGNvbnN0IGRpdiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwogIGRpdi5jbGFzc05hbWUgPSAnbXNnIGFpJzsgZGl2LmlkID0gJ3N0cmVhbWluZ01zZyc7CiAgZGl2LmlubmVySFRNTCA9ICc8c3BhbiBjbGFzcz0ic3RyZWFtLWN1cnNvciI+4paNPC9zcGFuPic7CiAgbWVzc2FnZXNFbC5hcHBlbmRDaGlsZChkaXYpOyBjaGF0QXJlYS5zY3JvbGxUb3AgPSBjaGF0QXJlYS5zY3JvbGxIZWlnaHQ7CiAgcmV0dXJuIGRpdjsKfQpmdW5jdGlvbiBhcHBlbmRUb2tlbihkaXYsIHRvaykgewogIGNvbnN0IGN1ciA9IGRpdi5xdWVyeVNlbGVjdG9yKCcuc3RyZWFtLWN1cnNvcicpOwogIGN1ci5pbnNlcnRBZGphY2VudFRleHQoJ2JlZm9yZWJlZ2luJywgdG9rKTsKICBjaGF0QXJlYS5zY3JvbGxUb3AgPSBjaGF0QXJlYS5zY3JvbGxIZWlnaHQ7Cn0KZnVuY3Rpb24gZmluaXNoU3RyZWFtQnViYmxlKGRpdiwgZnVsbFRleHQpIHsKICBkaXYucmVtb3ZlQXR0cmlidXRlKCdpZCcpOwogIGRpdi5pbm5lckhUTUwgPSBmbXQoZnVsbFRleHQpICsgJzxkaXYgY2xhc3M9Im1ldGEiPicgKyBuZXcgRGF0ZSgpLnRvTG9jYWxlVGltZVN0cmluZygnaGktSU4nLHtob3VyOicyLWRpZ2l0JyxtaW51dGU6JzItZGlnaXQnfSkgKyAnPC9kaXY+JzsKfQoKYXN5bmMgZnVuY3Rpb24gc2VuZCgpIHsKICBjb25zdCB0ZXh0ID0gaW5wdXRFbC52YWx1ZS50cmltKCk7CiAgaWYgKCF0ZXh0IHx8IHNlbmRpbmcpIHJldHVybjsKICBsZXQgYyA9IGFjdGl2ZUNoYXQoKTsKICBpZiAoIWMpIHsgbmV3Q2hhdCgpOyBjID0gYWN0aXZlQ2hhdCgpOyB9CiAgaWYgKCFjLm1lc3NhZ2VzLmxlbmd0aCkgYy50aXRsZSA9IHRleHQuc2xpY2UoMCwgNDIpICsgKHRleHQubGVuZ3RoID4gNDIgPyAn4oCmJyA6ICcnKTsKICBjLm1lc3NhZ2VzLnB1c2goeyByb2xlOiAndXNlcicsIGNvbnRlbnQ6IHRleHQsIHRzOiBEYXRlLm5vdygpIH0pOwogIGlucHV0RWwudmFsdWUgPSAnJzsgaW5wdXRFbC5zdHlsZS5oZWlnaHQgPSAnYXV0byc7CiAgcGVyc2lzdCgpOyByZW5kZXJBbGwoKTsKCiAgc2VuZGluZyA9IHRydWU7ICQoJ3NlbmRCdG4nKS5kaXNhYmxlZCA9IHRydWU7CiAgY29uc3QgYWRhcHRlciA9IGFkYXB0ZXJzW21vZGVsXSB8fCBhZGFwdGVycy5tb2NrOwogIGNvbnN0IGhpc3QgPSBjLm1lc3NhZ2VzLm1hcChtID0+ICh7IHJvbGU6IG0ucm9sZSwgY29udGVudDogbS5jb250ZW50IH0pKTsKCiAgdHJ5IHsKICAgIGlmIChhZGFwdGVyLnN0cmVhbWluZykgewogICAgICBjb25zdCBidWJibGUgPSBzdGFydFN0cmVhbUJ1YmJsZSgpOwogICAgICBsZXQgZnVsbCA9ICcnOwogICAgICBjb25zdCByZXBseSA9IGF3YWl0IGFkYXB0ZXIuc2VuZChoaXN0LCB0b2sgPT4geyBmdWxsICs9IHRvazsgYXBwZW5kVG9rZW4oYnViYmxlLCB0b2spOyB9KTsKICAgICAgZnVsbCA9IHJlcGx5IHx8IGZ1bGw7CiAgICAgIGZpbmlzaFN0cmVhbUJ1YmJsZShidWJibGUsIGZ1bGwpOwogICAgICBjLm1lc3NhZ2VzLnB1c2goeyByb2xlOiAnYXNzaXN0YW50JywgY29udGVudDogZnVsbCwgdHM6IERhdGUubm93KCkgfSk7CiAgICB9IGVsc2UgewogICAgICBjb25zdCBidWJibGUgPSBzdGFydFN0cmVhbUJ1YmJsZSgpOwogICAgICBidWJibGUuaW5uZXJIVE1MID0gJzxzcGFuIGNsYXNzPSJzdHJlYW0tY3Vyc29yIj7igKY8L3NwYW4+JzsKICAgICAgY29uc3QgcmVwbHkgPSBhd2FpdCBhZGFwdGVyLnNlbmQoaGlzdCk7CiAgICAgIGZpbmlzaFN0cmVhbUJ1YmJsZShidWJibGUsIHJlcGx5KTsKICAgICAgYy5tZXNzYWdlcy5wdXNoKHsgcm9sZTogJ2Fzc2lzdGFudCcsIGNvbnRlbnQ6IHJlcGx5LCB0czogRGF0ZS5ub3coKSB9KTsKICAgIH0KICB9IGNhdGNoIChlKSB7CiAgICBjb25zdCBzYiA9ICQoJ3N0cmVhbWluZ01zZycpOyBpZiAoc2IpIHNiLnJlbW92ZSgpOwogICAgYy5tZXNzYWdlcy5wdXNoKHsgcm9sZTogJ2Fzc2lzdGFudCcsIGNvbnRlbnQ6ICfimqDvuI8gJyArIGUubWVzc2FnZSwgdHM6IERhdGUubm93KCksIGVycjogdHJ1ZSB9KTsKICB9CiAgc2VuZGluZyA9IGZhbHNlOyAkKCdzZW5kQnRuJykuZGlzYWJsZWQgPSBmYWxzZTsKICBwZXJzaXN0KCk7IHJlbmRlckFsbCgpOwp9Cgphc3luYyBmdW5jdGlvbiByZXRyeUZyb20oaWR4KSB7CiAgY29uc3QgYyA9IGFjdGl2ZUNoYXQoKTsgaWYgKCFjIHx8IHNlbmRpbmcpIHJldHVybjsKICBjb25zdCBlcnJNc2cgPSBjLm1lc3NhZ2VzW2lkeF07CiAgaWYgKCFlcnJNc2cgfHwgIWVyck1zZy5lcnIpIHJldHVybjsKICAvLyByZW1vdmUgZmFpbGVkIGFzc2lzdGFudCBtc2csIHJlc2VuZCBsYXN0IHVzZXIgbXNnIGNvbnRleHQKICBjLm1lc3NhZ2VzLnNwbGljZShpZHgsIDEpOwogIHBlcnNpc3QoKTsgcmVuZGVyQWxsKCk7CiAgc2VuZGluZyA9IHRydWU7ICQoJ3NlbmRCdG4nKS5kaXNhYmxlZCA9IHRydWU7CiAgY29uc3QgYWRhcHRlciA9IGFkYXB0ZXJzW21vZGVsXSB8fCBhZGFwdGVycy5tb2NrOwogIGNvbnN0IGhpc3QgPSBjLm1lc3NhZ2VzLm1hcChtID0+ICh7IHJvbGU6IG0ucm9sZSwgY29udGVudDogbS5jb250ZW50IH0pKTsKICB0cnkgewogICAgaWYgKGFkYXB0ZXIuc3RyZWFtaW5nKSB7CiAgICAgIGNvbnN0IGJ1YmJsZSA9IHN0YXJ0U3RyZWFtQnViYmxlKCk7IGxldCBmdWxsID0gJyc7CiAgICAgIGNvbnN0IHJlcGx5ID0gYXdhaXQgYWRhcHRlci5zZW5kKGhpc3QsIHRvayA9PiB7IGZ1bGwgKz0gdG9rOyBhcHBlbmRUb2tlbihidWJibGUsIHRvayk7IH0pOwogICAgICBmdWxsID0gcmVwbHkgfHwgZnVsbDsgZmluaXNoU3RyZWFtQnViYmxlKGJ1YmJsZSwgZnVsbCk7CiAgICAgIGMubWVzc2FnZXMucHVzaCh7IHJvbGU6ICdhc3Npc3RhbnQnLCBjb250ZW50OiBmdWxsLCB0czogRGF0ZS5ub3coKSB9KTsKICAgIH0gZWxzZSB7CiAgICAgIGNvbnN0IGJ1YmJsZSA9IHN0YXJ0U3RyZWFtQnViYmxlKCk7IGJ1YmJsZS5pbm5lckhUTUwgPSAnPHNwYW4gY2xhc3M9InN0cmVhbS1jdXJzb3IiPuKApjwvc3Bhbj4nOwogICAgICBjb25zdCByZXBseSA9IGF3YWl0IGFkYXB0ZXIuc2VuZChoaXN0KTsgZmluaXNoU3RyZWFtQnViYmxlKGJ1YmJsZSwgcmVwbHkpOwogICAgICBjLm1lc3NhZ2VzLnB1c2goeyByb2xlOiAnYXNzaXN0YW50JywgY29udGVudDogcmVwbHksIHRzOiBEYXRlLm5vdygpIH0pOwogICAgfQogIH0gY2F0Y2ggKGUpIHsKICAgIGNvbnN0IHNiID0gJCgnc3RyZWFtaW5nTXNnJyk7IGlmIChzYikgc2IucmVtb3ZlKCk7CiAgICBjLm1lc3NhZ2VzLnB1c2goeyByb2xlOiAnYXNzaXN0YW50JywgY29udGVudDogJ+KaoO+4jyAnICsgZS5tZXNzYWdlLCB0czogRGF0ZS5ub3coKSwgZXJyOiB0cnVlIH0pOwogIH0KICBzZW5kaW5nID0gZmFsc2U7ICQoJ3NlbmRCdG4nKS5kaXNhYmxlZCA9IGZhbHNlOwogIHBlcnNpc3QoKTsgcmVuZGVyQWxsKCk7Cn0KCi8qIC0tLS0tLS0tLS0gU2lkZWJhciAvIHNldHRpbmdzIC0tLS0tLS0tLS0gKi8KY29uc3Qgb3BlblNpZGUgPSAoKSA9PiB7ICQoJ3NpZGViYXInKS5jbGFzc0xpc3QuYWRkKCdvcGVuJyk7ICQoJ3NpZGVPdmVybGF5JykuY2xhc3NMaXN0LmFkZCgnc2hvdycpOyB9Owpjb25zdCBjbG9zZVNpZGUgPSAoKSA9PiB7ICQoJ3NpZGViYXInKS5jbGFzc0xpc3QucmVtb3ZlKCdvcGVuJyk7ICQoJ3NpZGVPdmVybGF5JykuY2xhc3NMaXN0LnJlbW92ZSgnc2hvdycpOyB9OwpmdW5jdGlvbiBvcGVuU2V0dGluZ3MoKSB7ICQoJ21vZGVsU2VsZWN0JykudmFsdWUgPSBtb2RlbDsgJCgnc2V0dGluZ3NNb2RhbCcpLmNsYXNzTGlzdC5yZW1vdmUoJ2hpZGRlbicpOyB9CmZ1bmN0aW9uIGNsb3NlU2V0dGluZ3MoKSB7ICQoJ3NldHRpbmdzTW9kYWwnKS5jbGFzc0xpc3QuYWRkKCdoaWRkZW4nKTsgfQoKJCgnc2VuZEJ0bicpLm9uY2xpY2sgPSBzZW5kOwppbnB1dEVsLmFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLCBlID0+IHsgaWYgKGUua2V5ID09PSAnRW50ZXInICYmICFlLnNoaWZ0S2V5KSB7IGUucHJldmVudERlZmF1bHQoKTsgc2VuZCgpOyB9IH0pOwppbnB1dEVsLmFkZEV2ZW50TGlzdGVuZXIoJ2lucHV0JywgKCkgPT4geyBpbnB1dEVsLnN0eWxlLmhlaWdodCA9ICdhdXRvJzsgaW5wdXRFbC5zdHlsZS5oZWlnaHQgPSBNYXRoLm1pbihpbnB1dEVsLnNjcm9sbEhlaWdodCwgMTIwKSArICdweCc7IH0pOwokKCdtZW51QnRuJykub25jbGljayA9IG9wZW5TaWRlOwokKCdjbG9zZVNpZGUnKS5vbmNsaWNrID0gY2xvc2VTaWRlOwokKCdzaWRlT3ZlcmxheScpLm9uY2xpY2sgPSBjbG9zZVNpZGU7CiQoJ25ld0NoYXRCdG4nKS5vbmNsaWNrID0gbmV3Q2hhdDsKJCgnc2lkZU5ld0NoYXQnKS5vbmNsaWNrID0gKCkgPT4geyBuZXdDaGF0KCk7IGNsb3NlU2lkZSgpOyB9OwokKCdzZXR0aW5nc0J0bicpLm9uY2xpY2sgPSAoKSA9PiB7IGNsb3NlU2lkZSgpOyBvcGVuU2V0dGluZ3MoKTsgfTsKJCgnY2xvc2VTZXR0aW5ncycpLm9uY2xpY2sgPSBjbG9zZVNldHRpbmdzOwokKCdzZXR0aW5nc01vZGFsJykuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBlID0+IHsgaWYgKGUudGFyZ2V0ID09PSAkKCdzZXR0aW5nc01vZGFsJykpIGNsb3NlU2V0dGluZ3MoKTsgfSk7CiQoJ3NhdmVTZXR0aW5ncycpLm9uY2xpY2sgPSAoKSA9PiB7IG1vZGVsID0gJCgnbW9kZWxTZWxlY3QnKS52YWx1ZTsgcGVyc2lzdCgpOyByZW5kZXJBbGwoKTsgY2xvc2VTZXR0aW5ncygpOyB9OwokKCdjbGVhckhpc3RvcnknKS5vbmNsaWNrID0gKCkgPT4geyBpZiAoY29uZmlybSgnU2FhcmUgY2hhdHMgZGVsZXRlIGhvIGpheWVuZ2UuIFBha2thPycpKSB7IGNoYXRzID0gW107IGFjdGl2ZUlkID0gbnVsbDsgcGVyc2lzdCgpOyByZW5kZXJBbGwoKTsgY2xvc2VTZXR0aW5ncygpOyB9IH07CgppZiAoIWNoYXRzLmxlbmd0aCkgeyBjb25zdCBjID0geyBpZDogJ2MnICsgRGF0ZS5ub3coKSwgdGl0bGU6ICdOZXcgY2hhdCcsIGNyZWF0ZWQ6IERhdGUubm93KCksIG1lc3NhZ2VzOiBbXSB9OyBjaGF0cy5wdXNoKGMpOyBhY3RpdmVJZCA9IGMuaWQ7IHBlcnNpc3QoKTsgfQpyZW5kZXJBbGwoKTsK
+/* Mini AI Phase 1 — Chat core.
+   Architecture: keys NEVER in frontend. Gemini/Groq go via /api/proxy (server-side, env vars).
+   Streaming: Pollinations (SSE) yes. MOCK/proxy: no (single response). */
+'use strict';
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('miniai_' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('miniai_' + k, JSON.stringify(v)); } catch {} }
+};
+
+/* ---------- Model adapters ---------- */
+const adapters = {
+  mock: {
+    label: 'MOCK', streaming: false,
+    async send(messages, onToken) {
+      await new Promise(r => setTimeout(r, 500 + Math.random() * 500));
+      const last = (messages[messages.length-1]?.content || '').toLowerCase().trim();
+      let reply;
+      if (/^(hi|hello|hey|namaste|ram ram)/.test(last))
+        reply = 'Namaste! Main Mini AI hun (MOCK mode). Real AI ke liye Settings me Pollinations select karo — free hai, key nahi chahiye.';
+      else if (last.includes('tum kaun') || last.includes('who are you'))
+        reply = 'Main Mini AI hun — Phase 1 chat core. MOCK mode me rule-based jawab deta hun.';
+      else if (last.includes('time') || last.includes('samay') || last.includes('baj'))
+        reply = 'Tumhare device ka time: ' + new Date().toLocaleString('hi-IN');
+      else if (last.includes('plugin'))
+        reply = 'Plugin system Phase 2 me ayega. Wahan tum bologe "calculator plugin banao" aur ban jayega.';
+      else if (last.includes('mcp'))
+        reply = 'MCP connectors Phase 3 me ayenge.';
+      else if (last.includes('kaise ho'))
+        reply = 'Main badhiya hun! Tum batao, kya puchna hai? (Ye MOCK jawab hai — real AI ke liye Pollinations try karo.)';
+      else
+        reply = 'MOCK mode: smart jawab nahi de sakta. Settings → Pollinations select karo (free, no key). Tumne pucha: "' + messages[messages.length-1].content.slice(0,100) + '"';
+      return reply;
+    }
+  },
+
+  pollinations: {
+    label: 'Pollinations', streaming: true,
+    async send(messages, onToken) {
+      const res = await fetch('https://text.pollinations.ai/openai', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'openai', stream: true,
+          messages: [{ role: 'system', content: 'Tum Mini AI ho — helpful AI assistant. User Hindi/Hinglish me bole to usi me jawab do. Concise jawab do.' }, ...messages]
+        })
+      });
+      if (!res.ok) throw new Error('Pollinations HTTP ' + res.status);
+      const reader = res.body.getReader();
+      const dec = new TextDecoder();
+      let buf = '', full = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        const lines = buf.split('\n'); buf = lines.pop();
+        for (const line of lines) {
+          const t = line.trim();
+          if (!t.startsWith('data:')) continue;
+          const payload = t.slice(5).trim();
+          if (payload === '[DONE]') continue;
+          try {
+            const j = JSON.parse(payload);
+            const tok = j?.choices?.[0]?.delta?.content;
+            if (tok) { full += tok; onToken && onToken(tok); }
+          } catch {}
+        }
+      }
+      if (!full) throw new Error('Pollinations se khaali jawab');
+      return full;
+    }
+  },
+
+  // Gemini & Groq: via server-side proxy. Keys live in server env vars ONLY.
+  gemini: {
+    label: 'Gemini', streaming: false, viaProxy: true,
+    async send(messages) {
+      const res = await fetch('/api/proxy', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ provider: 'gemini', messages })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || ('Proxy HTTP ' + res.status));
+      if (!data.text) throw new Error('Proxy se khaali jawab');
+      return data.text;
+    }
+  },
+  groq: {
+    label: 'Groq', streaming: false, viaProxy: true,
+    async send(messages) {
+      const res = await fetch('/api/proxy', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ provider: 'groq', messages })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || ('Proxy HTTP ' + res.status));
+      if (!data.text) throw new Error('Proxy se khaali jawab');
+      return data.text;
+    }
+  }
+};
+
+/* ---------- State ---------- */
+let chats = store.get('chats', []);
+let activeId = store.get('activeId', null);
+let model = store.get('model', 'mock');
+let sending = false, abortCtrl = null;
+
+const $ = id => document.getElementById(id);
+const messagesEl = $('messages'), chatListEl = $('chatList'), inputEl = $('msgInput'), chatArea = $('chatArea');
+const activeChat = () => chats.find(c => c.id === activeId) || null;
+const persist = () => { store.set('chats', chats); store.set('activeId', activeId); store.set('model', model); };
+
+function newChat() {
+  const c = { id: 'c' + Date.now(), title: 'New chat', created: Date.now(), messages: [] };
+  chats.unshift(c); activeId = c.id; persist(); renderAll();
+}
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function fmt(text) {
+  let h = esc(text);
+  h = h.replace(/```(\w*)\n([\s\S]*?)```/g, (m, l, code) => '<pre><code>' + code.replace(/^\n+|\n+$/g,'') + '</code></pre>');
+  h = h.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  return h;
+}
+
+function renderMessages() {
+  messagesEl.innerHTML = '';
+  const c = activeChat();
+  if (!c || !c.messages.length) {
+    messagesEl.innerHTML = '<div class="empty"><span class="big">🤖</span>Mini AI me swagat hai!<br>Neeche type karke pucho.</div>';
+    return;
+  }
+  c.messages.forEach((m, i) => {
+    const div = document.createElement('div');
+    div.className = 'msg ' + (m.role === 'user' ? 'user' : 'ai') + (m.err ? ' error' : '');
+    let inner = fmt(m.content);
+    inner += '<div class="meta">' + new Date(m.ts).toLocaleTimeString('hi-IN',{hour:'2-digit',minute:'2-digit'});
+    if (m.err) inner += ' · <a href="#" data-retry="' + i + '" style="color:#ff9d9d">↻ retry</a>';
+    inner += '</div>';
+    div.innerHTML = inner;
+    messagesEl.appendChild(div);
+  });
+  messagesEl.querySelectorAll('[data-retry]').forEach(a => {
+    a.onclick = e => { e.preventDefault(); retryFrom(parseInt(a.dataset.retry)); };
+  });
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+function renderList() {
+  chatListEl.innerHTML = '';
+  chats.forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'chat-item' + (c.id === activeId ? ' active' : '');
+    d.innerHTML = esc(c.title) + '<span class="dt">' + new Date(c.created).toLocaleDateString('hi-IN') + '</span>';
+    d.onclick = () => { activeId = c.id; persist(); renderAll(); closeSide(); };
+    chatListEl.appendChild(d);
+  });
+}
+function renderAll() {
+  $('modelBadge').textContent = (adapters[model]?.label || model).toUpperCase();
+  renderMessages(); renderList();
+}
+
+/* Streaming bubble helpers */
+function startStreamBubble() {
+  const div = document.createElement('div');
+  div.className = 'msg ai'; div.id = 'streamingMsg';
+  div.innerHTML = '<span class="stream-cursor">▍</span>';
+  messagesEl.appendChild(div); chatArea.scrollTop = chatArea.scrollHeight;
+  return div;
+}
+function appendToken(div, tok) {
+  const cur = div.querySelector('.stream-cursor');
+  cur.insertAdjacentText('beforebegin', tok);
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+function finishStreamBubble(div, fullText) {
+  div.removeAttribute('id');
+  div.innerHTML = fmt(fullText) + '<div class="meta">' + new Date().toLocaleTimeString('hi-IN',{hour:'2-digit',minute:'2-digit'}) + '</div>';
+}
+
+async function send() {
+  const text = inputEl.value.trim();
+  if (!text || sending) return;
+  let c = activeChat();
+  if (!c) { newChat(); c = activeChat(); }
+  if (!c.messages.length) c.title = text.slice(0, 42) + (text.length > 42 ? '…' : '');
+  c.messages.push({ role: 'user', content: text, ts: Date.now() });
+  inputEl.value = ''; inputEl.style.height = 'auto';
+  persist(); renderAll();
+
+  sending = true; $('sendBtn').disabled = true;
+  const adapter = adapters[model] || adapters.mock;
+  const hist = c.messages.map(m => ({ role: m.role, content: m.content }));
+
+  try {
+    if (adapter.streaming) {
+      const bubble = startStreamBubble();
+      let full = '';
+      const reply = await adapter.send(hist, tok => { full += tok; appendToken(bubble, tok); });
+      full = reply || full;
+      finishStreamBubble(bubble, full);
+      c.messages.push({ role: 'assistant', content: full, ts: Date.now() });
+    } else {
+      const bubble = startStreamBubble();
+      bubble.innerHTML = '<span class="stream-cursor">…</span>';
+      const reply = await adapter.send(hist);
+      finishStreamBubble(bubble, reply);
+      c.messages.push({ role: 'assistant', content: reply, ts: Date.now() });
+    }
+  } catch (e) {
+    const sb = $('streamingMsg'); if (sb) sb.remove();
+    c.messages.push({ role: 'assistant', content: '⚠️ ' + e.message, ts: Date.now(), err: true });
+  }
+  sending = false; $('sendBtn').disabled = false;
+  persist(); renderAll();
+}
+
+async function retryFrom(idx) {
+  const c = activeChat(); if (!c || sending) return;
+  const errMsg = c.messages[idx];
+  if (!errMsg || !errMsg.err) return;
+  // remove failed assistant msg, resend last user msg context
+  c.messages.splice(idx, 1);
+  persist(); renderAll();
+  sending = true; $('sendBtn').disabled = true;
+  const adapter = adapters[model] || adapters.mock;
+  const hist = c.messages.map(m => ({ role: m.role, content: m.content }));
+  try {
+    if (adapter.streaming) {
+      const bubble = startStreamBubble(); let full = '';
+      const reply = await adapter.send(hist, tok => { full += tok; appendToken(bubble, tok); });
+      full = reply || full; finishStreamBubble(bubble, full);
+      c.messages.push({ role: 'assistant', content: full, ts: Date.now() });
+    } else {
+      const bubble = startStreamBubble(); bubble.innerHTML = '<span class="stream-cursor">…</span>';
+      const reply = await adapter.send(hist); finishStreamBubble(bubble, reply);
+      c.messages.push({ role: 'assistant', content: reply, ts: Date.now() });
+    }
+  } catch (e) {
+    const sb = $('streamingMsg'); if (sb) sb.remove();
+    c.messages.push({ role: 'assistant', content: '⚠️ ' + e.message, ts: Date.now(), err: true });
+  }
+  sending = false; $('sendBtn').disabled = false;
+  persist(); renderAll();
+}
+
+/* ---------- Sidebar / settings ---------- */
+const openSide = () => { $('sidebar').classList.add('open'); $('sideOverlay').classList.add('show'); };
+const closeSide = () => { $('sidebar').classList.remove('open'); $('sideOverlay').classList.remove('show'); };
+function openSettings() { $('modelSelect').value = model; $('settingsModal').classList.remove('hidden'); }
+function closeSettings() { $('settingsModal').classList.add('hidden'); }
+
+$('sendBtn').onclick = send;
+inputEl.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
+inputEl.addEventListener('input', () => { inputEl.style.height = 'auto'; inputEl.style.height = Math.min(inputEl.scrollHeight, 120) + 'px'; });
+$('menuBtn').onclick = openSide;
+$('closeSide').onclick = closeSide;
+$('sideOverlay').onclick = closeSide;
+$('newChatBtn').onclick = newChat;
+$('sideNewChat').onclick = () => { newChat(); closeSide(); };
+$('settingsBtn').onclick = () => { closeSide(); openSettings(); };
+$('closeSettings').onclick = closeSettings;
+$('settingsModal').addEventListener('click', e => { if (e.target === $('settingsModal')) closeSettings(); });
+$('saveSettings').onclick = () => { model = $('modelSelect').value; persist(); renderAll(); closeSettings(); };
+$('clearHistory').onclick = () => { if (confirm('Saare chats delete ho jayenge. Pakka?')) { chats = []; activeId = null; persist(); renderAll(); closeSettings(); } };
+
+if (!chats.length) { const c = { id: 'c' + Date.now(), title: 'New chat', created: Date.now(), messages: [] }; chats.push(c); activeId = c.id; persist(); }
+renderAll();
+
+/* ================= PHASE 2: Auth + Plugins UI ================= */
+Auth.init();
+
+function renderAuth() {
+  const bar = $('authBar');
+  if (Auth.mode === 'local') { bar.classList.add('hidden'); return; }
+  bar.classList.remove('hidden');
+  $('authStatus').textContent = Auth.isLoggedIn() ? ('👤 ' + (Auth.user.email || '')) : 'Not logged in';
+  $('authBtn').textContent = Auth.isLoggedIn() ? 'Logout' : 'Login';
+}
+$('authBtn').onclick = () => {
+  if (Auth.isLoggedIn() && Auth.mode === 'supabase') { Auth.signOut().then(renderAuth); return; }
+  if (!Auth.isConfigured()) { $('authNotCfg').classList.remove('hidden'); $('authForm').classList.add('hidden'); }
+  else { $('authNotCfg').classList.add('hidden'); $('authForm').classList.remove('hidden'); }
+  $('authModal').classList.remove('hidden');
+};
+$('closeAuth').onclick = () => $('authModal').classList.add('hidden');
+$('doLogin').onclick = async () => {
+  try { await Auth.signIn($('authEmail').value.trim(), $('authPass').value); $('authModal').classList.add('hidden'); renderAuth(); }
+  catch (e) { alert('Login failed: ' + e.message); }
+};
+$('doSignup').onclick = async () => {
+  try { await Auth.signUp($('authEmail').value.trim(), $('authPass').value); $('authModal').classList.add('hidden'); renderAuth(); alert('Sign up ho gaya! Email verify karo (agar required ho).'); }
+  catch (e) { alert('Sign up failed: ' + e.message); }
+};
+
+/* ---------- Plugins UI ---------- */
+function openPlugins() { renderPluginList(); renderExecLog(); $('pluginsModal').classList.remove('hidden'); }
+$('pluginsBtn').onclick = () => { closeSide(); openPlugins(); };
+$('closePlugins').onclick = () => $('pluginsModal').classList.add('hidden');
+document.querySelectorAll('.ptab').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.ptab').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  ['installed', 'builder', 'log'].forEach(t => $('ptab-' + t).classList.toggle('hidden', t !== b.dataset.ptab));
+});
+
+function renderPluginList() {
+  const el = $('pluginList'); const list = Plugins.list();
+  if (!list.length) { el.innerHTML = '<p class="hint">Koi plugin installed nahi. Builder se banao ya neeche sample plugins load karo.<br><br><button id="loadSamples" class="primary" style="padding:9px 16px;border:none;border-radius:10px;background:var(--accent);color:#fff;cursor:pointer">📦 Sample plugins load karo</button></p>';
+    const lb = $('loadSamples'); if (lb) lb.onclick = loadSamples; return; }
+  el.innerHTML = '';
+  list.forEach(p => {
+    const d = document.createElement('div'); d.className = 'plug-card';
+    const stCls = p.status.replace('-', '');
+    d.innerHTML = `<h3>${esc(p.name)} <span class="ver">v${esc(p.manifest.version || '?')}</span>
+      <span class="plug-status st-${p.status.replace('draft-invalid', 'draft-invalid')}">${p.status}</span></h3>
+      <p>${esc(p.manifest.description || '')}</p>
+      <p style="font-size:11px">permissions: ${(p.manifest.permissions || []).join(', ') || 'none'}</p>
+      ${p.errors && p.errors.length ? '<p style="color:#ff9d9d;font-size:12px">' + p.errors.map(esc).join('<br>') + '</p>' : ''}
+      <div class="plug-actions"></div>
+      ${p.status === 'enabled' ? `<div class="plug-run"><input placeholder='{"a":2,"b":3,"op":"add"}' data-runinput="${esc(p.name)}"><button class="go" data-run="${esc(p.name)}">▶ Run</button></div><div class="plug-result hidden" data-result="${esc(p.name)}"></div>` : ''}`;
+    const acts = d.querySelector('.plug-actions');
+    const mkBtn = (label, fn, cls) => { const b = document.createElement('button'); b.textContent = label; if (cls) b.className = cls; b.onclick = fn; acts.appendChild(b); };
+    if (p.status === 'draft' || p.status === 'draft-invalid') mkBtn('✅ Test + Approve', async () => {
+      try { const tests = await Plugins.approve(p.name); alert('Approved! ' + tests.filter(t => t.status === 'PASS').length + '/' + tests.length + ' tests PASS'); }
+      catch (e) { alert('Approve failed: ' + e.message); }
+      renderPluginList();
+    }, 'go');
+    if (p.status === 'enabled') mkBtn('⏸ Disable', () => { Plugins.setEnabled(p.name, false); renderPluginList(); });
+    if (p.status === 'disabled') mkBtn('▶ Enable', () => { Plugins.setEnabled(p.name, true); renderPluginList(); });
+    mkBtn('🗑 Delete', () => { if (confirm('Delete ' + p.name + '?')) { Plugins.uninstall(p.name); renderPluginList(); } });
+    el.appendChild(d);
+  });
+  el.querySelectorAll('[data-run]').forEach(b => b.onclick = async () => {
+    const name = b.dataset.run;
+    const inpEl = el.querySelector(`[data-runinput="${name}"]`);
+    const resEl = el.querySelector(`[data-result="${name}"]`);
+    let input = {};
+    try { input = inpEl.value.trim() ? JSON.parse(inpEl.value.trim()) : {}; }
+    catch { resEl.classList.remove('hidden'); resEl.classList.add('err'); resEl.textContent = 'JSON galat hai'; return; }
+    resEl.classList.remove('hidden'); resEl.classList.remove('err'); resEl.textContent = '…';
+    try { const out = await Plugins.execute(name, input); resEl.textContent = JSON.stringify(out, null, 2); }
+    catch (e) { resEl.classList.add('err'); resEl.textContent = '⚠️ ' + e.message; }
+    renderExecLog();
+  });
+}
+
+async function loadSamples() {
+  for (const f of ['calculator', 'physics']) {
+    try {
+      const res = await fetch('plugins/' + f + '.json');
+      if (!res.ok) continue;
+      const manifest = await res.json();
+      Plugins.installDraft(manifest);
+      try { await Plugins.approve(manifest.name); } catch (e) { console.warn(f, e.message); }
+    } catch (e) { console.warn(f, e.message); }
+  }
+  renderPluginList();
+}
+
+function renderExecLog() {
+  const el = $('execLog'); const log = Plugins.execLog();
+  el.innerHTML = log.length ? '' : '<p class="hint">Abhi koi execution nahi hua.</p>';
+  log.slice(0, 30).forEach(e => {
+    const d = document.createElement('div'); d.className = 'log-row';
+    d.innerHTML = `<span class="ts">${new Date(e.ts).toLocaleString('hi-IN')}</span> <b>${esc(e.plugin)}</b><br>in: ${esc(JSON.stringify(e.input)).slice(0, 120)}<br>` +
+      (e.error ? `<span style="color:#ff9d9d">err: ${esc(e.error)}</span>` : `out: ${esc(JSON.stringify(e.output)).slice(0, 120)}`);
+    el.appendChild(d);
+  });
+}
+
+/* ---------- Plugin Builder (AI-generated) ---------- */
+let pendingManifest = null;
+$('builderGen').onclick = async () => {
+  const desc = $('builderDesc').value.trim();
+  if (!desc) { alert('Pehle describe karo kaisa plugin chahiye'); return; }
+  const btn = $('builderGen'); btn.disabled = true; btn.textContent = '⏳ Generating...';
+  try {
+    const prompt = `Ek Mini AI plugin ka JSON manifest banao. Sirf JSON do, koi extra text nahi.\n\nUser description: "${desc}"\n\nFormat:\n{"name":"lowercase_2_40_chars","version":"1.0.0","description":"...","author":"user","permissions":["compute"],"inputSchema":{"type":"object","properties":{"field1":{"type":"number"}},"required":["field1"]},"outputSchema":{"type":"object","properties":{"result":{}}},"code":"function run(input){ /* input fields use karo, object return karo */ return {result: 0}; }","tests":[{"input":{"field1":1},"expect":{"result":0}}]}\n\nRules: code me sirf function run(input) ho, koi eval/fetch/document/window nahi. Tests me sahi expect values do.`;
+    const res = await fetch('https://text.pollinations.ai/openai', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'openai', messages: [{ role: 'user', content: prompt }] })
+    });
+    if (!res.ok) throw new Error('AI HTTP ' + res.status);
+    const data = await res.json();
+    let text = data?.choices?.[0]?.message?.content || '';
+    const m = text.match(/\{[\s\S]*\}/);
+    if (!m) throw new Error('AI se valid JSON nahi mila');
+    pendingManifest = JSON.parse(m[0]);
+    $('builderCode').value = JSON.stringify(pendingManifest, null, 2);
+    $('builderOut').classList.remove('hidden');
+    // Auto-run tests for review
+    const errs = Plugins.validate(pendingManifest);
+    const tests = errs.length ? [] : await Plugins.runTests(pendingManifest);
+    $('builderTests').innerHTML =
+      (errs.length ? '<p style="color:#ff9d9d;font-size:13px">Validation errors:<br>' + errs.map(esc).join('<br>') + '</p>' : '') +
+      tests.map(t => `<div class="test-row"><span class="test-${t.status.replace(' ', '')}">${t.status}</span> ${esc(t.name)} — ${esc(t.detail).slice(0, 100)}</div>`).join('');
+  } catch (e) { alert('Generate failed: ' + e.message); }
+  btn.disabled = false; btn.textContent = '🤖 Generate';
+};
+
+$('builderApprove').onclick = async () => {
+  try {
+    pendingManifest = JSON.parse($('builderCode').value);  // user-edited version
+    const errs = Plugins.installDraft(pendingManifest);
+    if (errs.length) { alert('Validation errors:\n' + errs.join('\n')); renderPluginList(); return; }
+    const tests = await Plugins.approve(pendingManifest.name);
+    alert('✅ Plugin approved aur enabled! ' + tests.filter(t => t.status === 'PASS').length + '/' + tests.length + ' PASS');
+    $('builderOut').classList.add('hidden'); $('builderDesc').value = '';
+    document.querySelector('[data-ptab="installed"]').click();
+  } catch (e) { alert('Approve failed: ' + e.message); }
+};
+
+$('manualInstall').onclick = () => {
+  try {
+    const m = JSON.parse($('manualManifest').value);
+    const errs = Plugins.installDraft(m);
+    alert(errs.length ? 'Draft saved (errors hain):\n' + errs.join('\n') : 'Draft saved! Ab Test + Approve karo.');
+    document.querySelector('[data-ptab="installed"]').click();
+  } catch (e) { alert('JSON galat hai: ' + e.message); }
+};
+
+// Auto-load samples on first run
+if (!localStorage.getItem('miniai_samples_loaded')) {
+  loadSamples().then(() => localStorage.setItem('miniai_samples_loaded', '1'));
+}
+renderAuth();

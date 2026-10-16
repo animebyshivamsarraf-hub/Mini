@@ -1,1 +1,74 @@
-LyogTWluaSBBSSBQaGFzZSAyIOKAlCBBdXRoIGFkYXB0ZXIuCiAgIE1vZGVzOiAnbG9jYWwnIChubyBsb2dpbiwgY3VycmVudCkgfCAnc3VwYWJhc2UnICh3aGVuIGNvbmZpZ3VyZWQpLgogICBTdXBhYmFzZSBrZXlzIGdvIGluIHNlcnZlciBlbnYgb3IgYXBwIGNvbmZpZyDigJQgTkVWRVIgaGFyZGNvZGVkIGhlcmUuICovCid1c2Ugc3RyaWN0JzsKCmNvbnN0IEF1dGggPSB7CiAgbW9kZTogJ2xvY2FsJywgIC8vICdsb2NhbCcgfCAnc3VwYWJhc2UnCiAgdXNlcjogbnVsbCwKICBfc3VwYWJhc2VVcmw6ICcnLAogIF9zdXBhYmFzZUtleTogJycsCgogIC8vIENhbGwgYXQgc3RhcnR1cC4gUmVhZHMgY29uZmlnIGZyb20gd2luZG93Lk1JTklBSV9DT05GSUcgKHNldCBieSBkZXBsb3kpIG9yIGxvY2FsU3RvcmFnZSAoZGV2KS4KICBpbml0KCkgewogICAgY29uc3QgY2ZnID0gKHdpbmRvdy5NSU5JQUlfQ09ORklHIHx8IHt9KTsKICAgIHRoaXMuX3N1cGFiYXNlVXJsID0gY2ZnLnN1cGFiYXNlVXJsIHx8IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdtaW5pYWlfc3VwYWJhc2VfdXJsJykgfHwgJyc7CiAgICB0aGlzLl9zdXBhYmFzZUtleSA9IGNmZy5zdXBhYmFzZUtleSB8fCBsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgnbWluaWFpX3N1cGFiYXNlX2tleScpIHx8ICcnOwogICAgaWYgKHRoaXMuX3N1cGFiYXNlVXJsICYmIHRoaXMuX3N1cGFiYXNlS2V5KSB7CiAgICAgIHRoaXMubW9kZSA9ICdzdXBhYmFzZSc7CiAgICAgIGNvbnN0IHNhdmVkID0gdGhpcy5fc3RvcmUuZ2V0KCdzdXBhYmFzZV9zZXNzaW9uJywgbnVsbCk7CiAgICAgIGlmIChzYXZlZCAmJiBzYXZlZC51c2VyKSB0aGlzLnVzZXIgPSBzYXZlZC51c2VyOwogICAgfSBlbHNlIHsKICAgICAgdGhpcy5tb2RlID0gJ2xvY2FsJzsKICAgICAgdGhpcy51c2VyID0geyBpZDogJ2xvY2FsJywgZW1haWw6ICdsb2NhbCB1c2VyJywgbW9kZTogJ2xvY2FsJyB9OwogICAgfQogICAgcmV0dXJuIHRoaXM7CiAgfSwKCiAgZ2V0IF9zdG9yZSgpIHsKICAgIHJldHVybiB7CiAgICAgIGdldDogKGssIGQpID0+IHsgdHJ5IHsgY29uc3QgdiA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdtaW5pYWlfJyArIGspOyByZXR1cm4gdiA/IEpTT04ucGFyc2UodikgOiBkOyB9IGNhdGNoIHsgcmV0dXJuIGQ7IH0gfSwKICAgICAgc2V0OiAoaywgdikgPT4geyB0cnkgeyBsb2NhbFN0b3JhZ2Uuc2V0SXRlbSgnbWluaWFpXycgKyBrLCBKU09OLnN0cmluZ2lmeSh2KSk7IH0gY2F0Y2gge30gfSwKICAgICAgZGVsOiAoaykgPT4geyB0cnkgeyBsb2NhbFN0b3JhZ2UucmVtb3ZlSXRlbSgnbWluaWFpXycgKyBrKTsgfSBjYXRjaCB7fSB9CiAgICB9OwogIH0sCgogIGlzQ29uZmlndXJlZCgpIHsgcmV0dXJuIHRoaXMubW9kZSA9PT0gJ3N1cGFiYXNlJzsgfSwKICBpc0xvZ2dlZEluKCkgeyByZXR1cm4gISEodGhpcy51c2VyICYmICh0aGlzLm1vZGUgPT09ICdsb2NhbCcgfHwgdGhpcy51c2VyLmFjY2Vzc190b2tlbikpOyB9LAoKICBhc3luYyBfc2IocGF0aCwgbWV0aG9kLCBib2R5LCB0b2tlbikgewogICAgY29uc3QgcmVzID0gYXdhaXQgZmV0Y2godGhpcy5fc3VwYWJhc2VVcmwgKyAnL2F1dGgvdjEnICsgcGF0aCwgewogICAgICBtZXRob2QsIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nLCAnYXBpa2V5JzogdGhpcy5fc3VwYWJhc2VLZXksCiAgICAgICAgLi4uKHRva2VuID8geyAnQXV0aG9yaXphdGlvbic6ICdCZWFyZXIgJyArIHRva2VuIH0gOiB7fSkKICAgICAgfSwKICAgICAgLi4uKGJvZHkgPyB7IGJvZHk6IEpTT04uc3RyaW5naWZ5KGJvZHkpIH0gOiB7fSkKICAgIH0pOwogICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlcy5qc29uKCkuY2F0Y2goKCkgPT4gKHt9KSk7CiAgICBpZiAoIXJlcy5vaykgdGhyb3cgbmV3IEVycm9yKGRhdGEubXNnIHx8IGRhdGEuZXJyb3JfZGVzY3JpcHRpb24gfHwgKCdBdXRoIEhUVFAgJyArIHJlcy5zdGF0dXMpKTsKICAgIHJldHVybiBkYXRhOwogIH0sCgogIGFzeW5jIHNpZ25VcChlbWFpbCwgcGFzc3dvcmQpIHsKICAgIGlmICghdGhpcy5pc0NvbmZpZ3VyZWQoKSkgdGhyb3cgbmV3IEVycm9yKCdTdXBhYmFzZSBjb25maWd1cmVkIG5haGkgaGFpLiBSRUFETUUgbWUgc2V0dXAgc3RlcHMgaGFpbi4nKTsKICAgIGNvbnN0IGRhdGEgPSBhd2FpdCB0aGlzLl9zYignL3NpZ251cCcsICdQT1NUJywgeyBlbWFpbCwgcGFzc3dvcmQgfSk7CiAgICBpZiAoZGF0YS51c2VyKSB7IHRoaXMudXNlciA9IHsgaWQ6IGRhdGEudXNlci5pZCwgZW1haWw6IGRhdGEudXNlci5lbWFpbCwgYWNjZXNzX3Rva2VuOiBkYXRhLmFjY2Vzc190b2tlbiB9OyB0aGlzLl9zdG9yZS5zZXQoJ3N1cGFiYXNlX3Nlc3Npb24nLCB0aGlzLnVzZXIpOyB9CiAgICByZXR1cm4gdGhpcy51c2VyOwogIH0sCgogIGFzeW5jIHNpZ25JbihlbWFpbCwgcGFzc3dvcmQpIHsKICAgIGlmICghdGhpcy5pc0NvbmZpZ3VyZWQoKSkgdGhyb3cgbmV3IEVycm9yKCdTdXBhYmFzZSBjb25maWd1cmVkIG5haGkgaGFpLiBSRUFETUUgbWUgc2V0dXAgc3RlcHMgaGFpbi4nKTsKICAgIGNvbnN0IGRhdGEgPSBhd2FpdCB0aGlzLl9zYignL3Rva2VuP2dyYW50X3R5cGU9cGFzc3dvcmQnLCAnUE9TVCcsIHsgZW1haWwsIHBhc3N3b3JkIH0pOwogICAgdGhpcy51c2VyID0geyBpZDogZGF0YS51c2VyLmlkLCBlbWFpbDogZGF0YS51c2VyLmVtYWlsLCBhY2Nlc3NfdG9rZW46IGRhdGEuYWNjZXNzX3Rva2VuIH07CiAgICB0aGlzLl9zdG9yZS5zZXQoJ3N1cGFiYXNlX3Nlc3Npb24nLCB0aGlzLnVzZXIpOwogICAgcmV0dXJuIHRoaXMudXNlcjsKICB9LAoKICBhc3luYyBzaWduT3V0KCkgewogICAgaWYgKHRoaXMuaXNDb25maWd1cmVkKCkgJiYgdGhpcy51c2VyPy5hY2Nlc3NfdG9rZW4pIHsKICAgICAgdHJ5IHsgYXdhaXQgdGhpcy5fc2IoJy9sb2dvdXQnLCAnUE9TVCcsIG51bGwsIHRoaXMudXNlci5hY2Nlc3NfdG9rZW4pOyB9IGNhdGNoIHt9CiAgICB9CiAgICB0aGlzLnVzZXIgPSB0aGlzLm1vZGUgPT09ICdsb2NhbCcgPyB7IGlkOiAnbG9jYWwnLCBlbWFpbDogJ2xvY2FsIHVzZXInLCBtb2RlOiAnbG9jYWwnIH0gOiBudWxsOwogICAgdGhpcy5fc3RvcmUuZGVsKCdzdXBhYmFzZV9zZXNzaW9uJyk7CiAgfQp9Owo=
+/* Mini AI Phase 2 — Auth adapter.
+   Modes: 'local' (no login, current) | 'supabase' (when configured).
+   Supabase keys go in server env or app config — NEVER hardcoded here. */
+'use strict';
+
+const Auth = {
+  mode: 'local',  // 'local' | 'supabase'
+  user: null,
+  _supabaseUrl: '',
+  _supabaseKey: '',
+
+  // Call at startup. Reads config from window.MINIAI_CONFIG (set by deploy) or localStorage (dev).
+  init() {
+    const cfg = (window.MINIAI_CONFIG || {});
+    this._supabaseUrl = cfg.supabaseUrl || localStorage.getItem('miniai_supabase_url') || '';
+    this._supabaseKey = cfg.supabaseKey || localStorage.getItem('miniai_supabase_key') || '';
+    if (this._supabaseUrl && this._supabaseKey) {
+      this.mode = 'supabase';
+      const saved = this._store.get('supabase_session', null);
+      if (saved && saved.user) this.user = saved.user;
+    } else {
+      this.mode = 'local';
+      this.user = { id: 'local', email: 'local user', mode: 'local' };
+    }
+    return this;
+  },
+
+  get _store() {
+    return {
+      get: (k, d) => { try { const v = localStorage.getItem('miniai_' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+      set: (k, v) => { try { localStorage.setItem('miniai_' + k, JSON.stringify(v)); } catch {} },
+      del: (k) => { try { localStorage.removeItem('miniai_' + k); } catch {} }
+    };
+  },
+
+  isConfigured() { return this.mode === 'supabase'; },
+  isLoggedIn() { return !!(this.user && (this.mode === 'local' || this.user.access_token)); },
+
+  async _sb(path, method, body, token) {
+    const res = await fetch(this._supabaseUrl + '/auth/v1' + path, {
+      method, headers: {
+        'Content-Type': 'application/json', 'apikey': this._supabaseKey,
+        ...(token ? { 'Authorization': 'Bearer ' + token } : {})
+      },
+      ...(body ? { body: JSON.stringify(body) } : {})
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.msg || data.error_description || ('Auth HTTP ' + res.status));
+    return data;
+  },
+
+  async signUp(email, password) {
+    if (!this.isConfigured()) throw new Error('Supabase configured nahi hai. README me setup steps hain.');
+    const data = await this._sb('/signup', 'POST', { email, password });
+    if (data.user) { this.user = { id: data.user.id, email: data.user.email, access_token: data.access_token }; this._store.set('supabase_session', this.user); }
+    return this.user;
+  },
+
+  async signIn(email, password) {
+    if (!this.isConfigured()) throw new Error('Supabase configured nahi hai. README me setup steps hain.');
+    const data = await this._sb('/token?grant_type=password', 'POST', { email, password });
+    this.user = { id: data.user.id, email: data.user.email, access_token: data.access_token };
+    this._store.set('supabase_session', this.user);
+    return this.user;
+  },
+
+  async signOut() {
+    if (this.isConfigured() && this.user?.access_token) {
+      try { await this._sb('/logout', 'POST', null, this.user.access_token); } catch {}
+    }
+    this.user = this.mode === 'local' ? { id: 'local', email: 'local user', mode: 'local' } : null;
+    this._store.del('supabase_session');
+  }
+};

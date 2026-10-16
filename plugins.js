@@ -1,1 +1,182 @@
-LyogTWluaSBBSSBQaGFzZSAyIOKAlCBQbHVnaW4gc3lzdGVtIGNvcmUuCiAgIE1hbmlmZXN0IGZvcm1hdCwgcmVnaXN0cnkgKGxvY2FsU3RvcmFnZSksIHZhbGlkYXRpb24sIHNhbmRib3hlZCBleGVjdXRpb24uCgogICBQbHVnaW4gbWFuaWZlc3Q6CiAgIHsKICAgICAibmFtZSI6ICJjYWxjdWxhdG9yIiwgInZlcnNpb24iOiAiMS4wLjAiLAogICAgICJkZXNjcmlwdGlvbiI6ICIuLi4iLCAiYXV0aG9yIjogIi4uLiIsCiAgICAgInBlcm1pc3Npb25zIjogWyJjb21wdXRlIl0sICAgICAgICAgIC8vIGNvbXB1dGUgfCBuZXR3b3JrIHwgc3RvcmFnZQogICAgICJpbnB1dFNjaGVtYSI6IHsgInR5cGUiOiAib2JqZWN0IiwgInByb3BlcnRpZXMiOiB7Li4ufSwgInJlcXVpcmVkIjogWy4uLl0gfSwKICAgICAib3V0cHV0U2NoZW1hIjogeyAidHlwZSI6ICJvYmplY3QiLCAicHJvcGVydGllcyI6IHsuLi59IH0sCiAgICAgImNvZGUiOiAiZnVuY3Rpb24gcnVuKGlucHV0KSB7IC4uLiByZXR1cm4gey4uLn07IH0iLCAgLy8gbXVzdCBkZWZpbmUgcnVuKGlucHV0KQogICAgICJ0ZXN0cyI6IFt7ICJpbnB1dCI6IHsuLi59LCAiZXhwZWN0Ijogey4uLn0gfV0KICAgfQoKICAgTGlmZWN5Y2xlOiBkcmFmdCDihpIgdmFsaWRhdGVkIOKGkiB0ZXN0ZWQg4oaSIGFwcHJvdmVkIOKGkiBpbnN0YWxsZWQg4oaSIGVuYWJsZWQvZGlzYWJsZWQKICAgRXhlY3V0aW9uOiBXZWIgV29ya2VyIHNhbmRib3gsIDVzIHRpbWVvdXQsIG5vIERPTSwgbm8gc2VjcmV0cywgbm8gbmV0d29yayAodW5sZXNzIHBlcm1pc3Npb24pLgoqLwondXNlIHN0cmljdCc7Cgpjb25zdCBQbHVnaW5zID0gewogIF9zdG9yZTogewogICAgZ2V0KGssIGQpIHsgdHJ5IHsgY29uc3QgdiA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdtaW5pYWlfcGx1Z2luXycgKyBrKTsgcmV0dXJuIHYgPyBKU09OLnBhcnNlKHYpIDogZDsgfSBjYXRjaCB7IHJldHVybiBkOyB9IH0sCiAgICBzZXQoaywgdikgeyB0cnkgeyBsb2NhbFN0b3JhZ2Uuc2V0SXRlbSgnbWluaWFpX3BsdWdpbl8nICsgaywgSlNPTi5zdHJpbmdpZnkodikpOyB9IGNhdGNoIHt9IH0KICB9LAoKICBsaXN0KCkgeyByZXR1cm4gdGhpcy5fc3RvcmUuZ2V0KCdyZWdpc3RyeScsIFtdKTsgfSwKICBfc2F2ZShyZWcpIHsgdGhpcy5fc3RvcmUuc2V0KCdyZWdpc3RyeScsIHJlZyk7IH0sCgogIGdldChuYW1lKSB7IHJldHVybiB0aGlzLmxpc3QoKS5maW5kKHAgPT4gcC5uYW1lID09PSBuYW1lKSB8fCBudWxsOyB9LAoKICAvKiAtLS0tLS0tLS0tIFZhbGlkYXRpb24gLS0tLS0tLS0tLSAqLwogIHZhbGlkYXRlKG1hbmlmZXN0KSB7CiAgICBjb25zdCBlcnJvcnMgPSBbXTsKICAgIGlmICghbWFuaWZlc3QgfHwgdHlwZW9mIG1hbmlmZXN0ICE9PSAnb2JqZWN0JykgcmV0dXJuIFsnTWFuaWZlc3Qgb2JqZWN0IGhvbmEgY2hhaGl5ZSddOwogICAgaWYgKCFtYW5pZmVzdC5uYW1lIHx8ICEvXlthLXowLTlfLV17Miw0MH0kLy50ZXN0KG1hbmlmZXN0Lm5hbWUpKSBlcnJvcnMucHVzaCgnbmFtZTogbG93ZXJjYXNlLCAyLTQwIGNoYXJzIChhLXogMC05IF8gLSknKTsKICAgIGlmICghbWFuaWZlc3QudmVyc2lvbiB8fCAhL15cZCtcLlxkK1wuXGQrJC8udGVzdChtYW5pZmVzdC52ZXJzaW9uKSkgZXJyb3JzLnB1c2goJ3ZlcnNpb246IHNlbXZlciAoZS5nLiAxLjAuMCknKTsKICAgIGlmICghbWFuaWZlc3QuZGVzY3JpcHRpb24gfHwgbWFuaWZlc3QuZGVzY3JpcHRpb24ubGVuZ3RoIDwgMTApIGVycm9ycy5wdXNoKCdkZXNjcmlwdGlvbjoga2FtIHNlIGthbSAxMCBjaGFycycpOwogICAgaWYgKCFBcnJheS5pc0FycmF5KG1hbmlmZXN0LnBlcm1pc3Npb25zKSkgZXJyb3JzLnB1c2goJ3Blcm1pc3Npb25zOiBhcnJheSBob25hIGNoYWhpeWUnKTsKICAgIGVsc2UgZm9yIChjb25zdCBwIG9mIG1hbmlmZXN0LnBlcm1pc3Npb25zKQogICAgICBpZiAoIVsnY29tcHV0ZScsICduZXR3b3JrJywgJ3N0b3JhZ2UnXS5pbmNsdWRlcyhwKSkgZXJyb3JzLnB1c2goJ3Blcm1pc3Npb24gZ2FsYXQ6ICcgKyBwKTsKICAgIGlmICghbWFuaWZlc3QuaW5wdXRTY2hlbWEgfHwgbWFuaWZlc3QuaW5wdXRTY2hlbWEudHlwZSAhPT0gJ29iamVjdCcpIGVycm9ycy5wdXNoKCdpbnB1dFNjaGVtYToge3R5cGU6Im9iamVjdCIsLi4ufSBjaGFoaXllJyk7CiAgICBpZiAoIW1hbmlmZXN0LmNvZGUgfHwgdHlwZW9mIG1hbmlmZXN0LmNvZGUgIT09ICdzdHJpbmcnIHx8ICFtYW5pZmVzdC5jb2RlLmluY2x1ZGVzKCdmdW5jdGlvbiBydW4nKSkKICAgICAgZXJyb3JzLnB1c2goJ2NvZGUgbWUgYGZ1bmN0aW9uIHJ1bihpbnB1dClgIGhvbmEgY2hhaGl5ZScpOwogICAgLy8gRGFuZ2Vyb3VzIHBhdHRlcm5zIOKAlCBibG9jayBrYXJvCiAgICBjb25zdCBiYW5uZWQgPSBbJ2V2YWwoJywgJ0Z1bmN0aW9uKCcsICdpbXBvcnRTY3JpcHRzJywgJ1hNTEh0dHBSZXF1ZXN0JywgJ2ZldGNoKCcsICdXZWJTb2NrZXQnLCAnbG9jYWxTdG9yYWdlJywgJ2RvY3VtZW50JywgJ3dpbmRvdycsICdwcm9jZXNzJywgJ3JlcXVpcmUoJ107CiAgICBpZiAobWFuaWZlc3QucGVybWlzc2lvbnMgJiYgIW1hbmlmZXN0LnBlcm1pc3Npb25zLmluY2x1ZGVzKCduZXR3b3JrJykpIHsKICAgICAgZm9yIChjb25zdCBiIG9mIFsnZmV0Y2goJywgJ1hNTEh0dHBSZXF1ZXN0JywgJ1dlYlNvY2tldCcsICdpbXBvcnRTY3JpcHRzJ10pCiAgICAgICAgaWYgKG1hbmlmZXN0LmNvZGUuaW5jbHVkZXMoYikpIGVycm9ycy5wdXNoKCduZXR3b3JrIHBlcm1pc3Npb24ga2UgYmluYSBgJyArIGIgKyAnYCBhbGxvd2VkIG5haGknKTsKICAgIH0KICAgIGZvciAoY29uc3QgYiBvZiBbJ2V2YWwoJywgJ0Z1bmN0aW9uKCcsICdkb2N1bWVudCcsICd3aW5kb3cuJywgJ3Byb2Nlc3MnLCAncmVxdWlyZSgnXSkKICAgICAgaWYgKG1hbmlmZXN0LmNvZGUuaW5jbHVkZXMoYikpIGVycm9ycy5wdXNoKCdiYW5uZWQgcGF0dGVybjogYCcgKyBiICsgJ2AnKTsKICAgIHJldHVybiBlcnJvcnM7CiAgfSwKCiAgLyogVmFsaWRhdGUgaW5wdXQgYWdhaW5zdCBKU09OIHNjaGVtYSAoc2ltcGxlIHN1YnNldCkgKi8KICB2YWxpZGF0ZUlucHV0KHNjaGVtYSwgaW5wdXQpIHsKICAgIGlmIChzY2hlbWEudHlwZSA9PT0gJ29iamVjdCcpIHsKICAgICAgaWYgKHR5cGVvZiBpbnB1dCAhPT0gJ29iamVjdCcgfHwgaW5wdXQgPT09IG51bGwpIHJldHVybiAnaW5wdXQgb2JqZWN0IGhvbmEgY2hhaGl5ZSc7CiAgICAgIGZvciAoY29uc3QgciBvZiAoc2NoZW1hLnJlcXVpcmVkIHx8IFtdKSkKICAgICAgICBpZiAoIShyIGluIGlucHV0KSkgcmV0dXJuICdtaXNzaW5nIHJlcXVpcmVkIGZpZWxkOiAnICsgcjsKICAgICAgZm9yIChjb25zdCBbaywgcHJvcF0gb2YgT2JqZWN0LmVudHJpZXMoc2NoZW1hLnByb3BlcnRpZXMgfHwge30pKSB7CiAgICAgICAgaWYgKGsgaW4gaW5wdXQgJiYgcHJvcC50eXBlKSB7CiAgICAgICAgICBjb25zdCB0ID0gdHlwZW9mIGlucHV0W2tdOwogICAgICAgICAgY29uc3Qgd2FudCA9IHByb3AudHlwZSA9PT0gJ2ludGVnZXInID8gJ251bWJlcicgOiBwcm9wLnR5cGU7CiAgICAgICAgICBpZiAodCAhPT0gd2FudCkgcmV0dXJuIGBmaWVsZCAke2t9OiAke3Byb3AudHlwZX0gY2hhaGl5ZSwgJHt0fSBtaWxhYDsKICAgICAgICAgIGlmIChwcm9wLnR5cGUgPT09ICdpbnRlZ2VyJyAmJiAhTnVtYmVyLmlzSW50ZWdlcihpbnB1dFtrXSkpIHJldHVybiBgZmllbGQgJHtrfTogaW50ZWdlciBjaGFoaXllYDsKICAgICAgICB9CiAgICAgIH0KICAgIH0KICAgIHJldHVybiBudWxsOwogIH0sCgogIC8qIC0tLS0tLS0tLS0gU2FuZGJveGVkIGV4ZWN1dGlvbiAoV2ViIFdvcmtlciwgNXMgdGltZW91dCkgLS0tLS0tLS0tLSAqLwogIGFzeW5jIGV4ZWN1dGUobmFtZSwgaW5wdXQpIHsKICAgIGNvbnN0IHBsdWdpbiA9IHRoaXMuZ2V0KG5hbWUpOwogICAgaWYgKCFwbHVnaW4pIHRocm93IG5ldyBFcnJvcignUGx1Z2luIG5haGkgbWlsYTogJyArIG5hbWUpOwogICAgaWYgKHBsdWdpbi5zdGF0dXMgIT09ICdlbmFibGVkJykgdGhyb3cgbmV3IEVycm9yKCdQbHVnaW4gZW5hYmxlZCBuYWhpIGhhaTogJyArIG5hbWUpOwoKICAgIGNvbnN0IHNjaGVtYUVyciA9IHRoaXMudmFsaWRhdGVJbnB1dChwbHVnaW4ubWFuaWZlc3QuaW5wdXRTY2hlbWEsIGlucHV0KTsKICAgIGlmIChzY2hlbWFFcnIpIHRocm93IG5ldyBFcnJvcignSW5wdXQgaW52YWxpZDogJyArIHNjaGVtYUVycik7CgogICAgcmV0dXJuIG5ldyBQcm9taXNlKChyZXNvbHZlLCByZWplY3QpID0+IHsKICAgICAgY29uc3Qgd29ya2VyU3JjID0gYAogICAgICAgIHNlbGYub25tZXNzYWdlID0gZnVuY3Rpb24oZSkgewogICAgICAgICAgdHJ5IHsKICAgICAgICAgICAgJHtwbHVnaW4ubWFuaWZlc3QuY29kZX0KICAgICAgICAgICAgaWYgKHR5cGVvZiBydW4gIT09ICdmdW5jdGlvbicpIHRocm93IG5ldyBFcnJvcigncnVuKGlucHV0KSBkZWZpbmVkIG5haGkgaGFpJyk7CiAgICAgICAgICAgIGNvbnN0IG91dCA9IHJ1bihlLmRhdGEuaW5wdXQpOwogICAgICAgICAgICBzZWxmLnBvc3RNZXNzYWdlKHsgb2s6IHRydWUsIG91dHB1dDogb3V0IH0pOwogICAgICAgICAgfSBjYXRjaCAoZXJyKSB7IHNlbGYucG9zdE1lc3NhZ2UoeyBvazogZmFsc2UsIGVycm9yOiBTdHJpbmcoZXJyLm1lc3NhZ2UgfHwgZXJyKSB9KTsgfQogICAgICAgIH07YDsKICAgICAgY29uc3QgYmxvYiA9IG5ldyBCbG9iKFt3b3JrZXJTcmNdLCB7IHR5cGU6ICd0ZXh0L2phdmFzY3JpcHQnIH0pOwogICAgICBjb25zdCB3b3JrZXIgPSBuZXcgV29ya2VyKFVSTC5jcmVhdGVPYmplY3RVUkwoYmxvYikpOwogICAgICBjb25zdCB0aW1lciA9IHNldFRpbWVvdXQoKCkgPT4geyB3b3JrZXIudGVybWluYXRlKCk7IHJlamVjdChuZXcgRXJyb3IoJ1RpbWVvdXQ6IDVzIHNlIHp5YWRhIGxhZ2EnKSk7IH0sIDUwMDApOwogICAgICB3b3JrZXIub25tZXNzYWdlID0gZSA9PiB7CiAgICAgICAgY2xlYXJUaW1lb3V0KHRpbWVyKTsgd29ya2VyLnRlcm1pbmF0ZSgpOwogICAgICAgIGlmIChlLmRhdGEub2spIHsgdGhpcy5fbG9nKG5hbWUsIGlucHV0LCBlLmRhdGEub3V0cHV0LCBudWxsKTsgcmVzb2x2ZShlLmRhdGEub3V0cHV0KTsgfQogICAgICAgIGVsc2UgeyB0aGlzLl9sb2cobmFtZSwgaW5wdXQsIG51bGwsIGUuZGF0YS5lcnJvcik7IHJlamVjdChuZXcgRXJyb3IoZS5kYXRhLmVycm9yKSk7IH0KICAgICAgfTsKICAgICAgd29ya2VyLm9uZXJyb3IgPSBlID0+IHsgY2xlYXJUaW1lb3V0KHRpbWVyKTsgd29ya2VyLnRlcm1pbmF0ZSgpOyByZWplY3QobmV3IEVycm9yKCdXb3JrZXIgZXJyb3InKSk7IH07CiAgICAgIHdvcmtlci5wb3N0TWVzc2FnZSh7IGlucHV0IH0pOwogICAgfSk7CiAgfSwKCiAgLyogLS0tLS0tLS0tLSBUZXN0cyAtLS0tLS0tLS0tICovCiAgYXN5bmMgcnVuVGVzdHMobWFuaWZlc3QpIHsKICAgIGNvbnN0IHJlc3VsdHMgPSBbXTsKICAgIGNvbnN0IHRlc3RzID0gbWFuaWZlc3QudGVzdHMgfHwgW107CiAgICBpZiAoIXRlc3RzLmxlbmd0aCkgcmV0dXJuIFt7IG5hbWU6ICdubyB0ZXN0cycsIHN0YXR1czogJ05PVCBSVU4nLCBkZXRhaWw6ICdLb2kgdGVzdCBkZWZpbmVkIG5haGknIH1dOwogICAgZm9yIChsZXQgaSA9IDA7IGkgPCB0ZXN0cy5sZW5ndGg7IGkrKykgewogICAgICBjb25zdCB0ID0gdGVzdHNbaV07CiAgICAgIHRyeSB7CiAgICAgICAgY29uc3Qgb3V0ID0gYXdhaXQgdGhpcy5fZXhlY0NvZGUobWFuaWZlc3QuY29kZSwgdC5pbnB1dCwgbWFuaWZlc3QucGVybWlzc2lvbnMgfHwgW10pOwogICAgICAgIGNvbnN0IHBhc3MgPSBKU09OLnN0cmluZ2lmeShvdXQpID09PSBKU09OLnN0cmluZ2lmeSh0LmV4cGVjdCk7CiAgICAgICAgcmVzdWx0cy5wdXNoKHsgbmFtZTogJ3Rlc3QgJyArIChpICsgMSksIHN0YXR1czogcGFzcyA/ICdQQVNTJyA6ICdGQUlMJywKICAgICAgICAgIGRldGFpbDogcGFzcyA/ICdPSycgOiAoJ2V4cGVjdGVkICcgKyBKU09OLnN0cmluZ2lmeSh0LmV4cGVjdCkgKyAnLCBnb3QgJyArIEpTT04uc3RyaW5naWZ5KG91dCkpIH0pOwogICAgICB9IGNhdGNoIChlKSB7CiAgICAgICAgcmVzdWx0cy5wdXNoKHsgbmFtZTogJ3Rlc3QgJyArIChpICsgMSksIHN0YXR1czogJ0ZBSUwnLCBkZXRhaWw6IGUubWVzc2FnZSB9KTsKICAgICAgfQogICAgfQogICAgcmV0dXJuIHJlc3VsdHM7CiAgfSwKCiAgX2V4ZWNDb2RlKGNvZGUsIGlucHV0LCBwZXJtaXNzaW9ucykgewogICAgcmV0dXJuIG5ldyBQcm9taXNlKChyZXNvbHZlLCByZWplY3QpID0+IHsKICAgICAgY29uc3Qgd29ya2VyU3JjID0gYHNlbGYub25tZXNzYWdlPWZ1bmN0aW9uKGUpe3RyeXske2NvZGV9O2NvbnN0IG91dD1ydW4oZS5kYXRhLmlucHV0KTtzZWxmLnBvc3RNZXNzYWdlKHtvazp0cnVlLG91dHB1dDpvdXR9KTt9Y2F0Y2goZXJyKXtzZWxmLnBvc3RNZXNzYWdlKHtvazpmYWxzZSxlcnJvcjpTdHJpbmcoZXJyLm1lc3NhZ2V8fGVycil9KTt9fTtgOwogICAgICBjb25zdCB3b3JrZXIgPSBuZXcgV29ya2VyKFVSTC5jcmVhdGVPYmplY3RVUkwobmV3IEJsb2IoW3dvcmtlclNyY10sIHsgdHlwZTogJ3RleHQvamF2YXNjcmlwdCcgfSkpKTsKICAgICAgY29uc3QgdGltZXIgPSBzZXRUaW1lb3V0KCgpID0+IHsgd29ya2VyLnRlcm1pbmF0ZSgpOyByZWplY3QobmV3IEVycm9yKCdUaW1lb3V0IDVzJykpOyB9LCA1MDAwKTsKICAgICAgd29ya2VyLm9ubWVzc2FnZSA9IGUgPT4geyBjbGVhclRpbWVvdXQodGltZXIpOyB3b3JrZXIudGVybWluYXRlKCk7IGUuZGF0YS5vayA/IHJlc29sdmUoZS5kYXRhLm91dHB1dCkgOiByZWplY3QobmV3IEVycm9yKGUuZGF0YS5lcnJvcikpOyB9OwogICAgICB3b3JrZXIub25lcnJvciA9ICgpID0+IHsgY2xlYXJUaW1lb3V0KHRpbWVyKTsgd29ya2VyLnRlcm1pbmF0ZSgpOyByZWplY3QobmV3IEVycm9yKCdXb3JrZXIgZXJyb3InKSk7IH07CiAgICAgIHdvcmtlci5wb3N0TWVzc2FnZSh7IGlucHV0IH0pOwogICAgfSk7CiAgfSwKCiAgLyogLS0tLS0tLS0tLSBSZWdpc3RyeSBvcHMgLS0tLS0tLS0tLSAqLwogIGluc3RhbGxEcmFmdChtYW5pZmVzdCkgewogICAgY29uc3QgZXJyb3JzID0gdGhpcy52YWxpZGF0ZShtYW5pZmVzdCk7CiAgICBjb25zdCByZWcgPSB0aGlzLmxpc3QoKS5maWx0ZXIocCA9PiBwLm5hbWUgIT09IG1hbmlmZXN0Lm5hbWUpOwogICAgcmVnLnB1c2goeyBuYW1lOiBtYW5pZmVzdC5uYW1lLCBtYW5pZmVzdCwgc3RhdHVzOiBlcnJvcnMubGVuZ3RoID8gJ2RyYWZ0LWludmFsaWQnIDogJ2RyYWZ0JywgZXJyb3JzLCBpbnN0YWxsZWRBdDogRGF0ZS5ub3coKSB9KTsKICAgIHRoaXMuX3NhdmUocmVnKTsKICAgIHJldHVybiBlcnJvcnM7CiAgfSwKICBhc3luYyBhcHByb3ZlKG5hbWUpIHsKICAgIGNvbnN0IHJlZyA9IHRoaXMubGlzdCgpOyBjb25zdCBwID0gcmVnLmZpbmQoeCA9PiB4Lm5hbWUgPT09IG5hbWUpOwogICAgaWYgKCFwKSB0aHJvdyBuZXcgRXJyb3IoJ1BsdWdpbiBuYWhpIG1pbGEnKTsKICAgIGNvbnN0IGVycm9ycyA9IHRoaXMudmFsaWRhdGUocC5tYW5pZmVzdCk7CiAgICBpZiAoZXJyb3JzLmxlbmd0aCkgdGhyb3cgbmV3IEVycm9yKCdWYWxpZGF0aW9uIGZhaWxlZDogJyArIGVycm9ycy5qb2luKCc7ICcpKTsKICAgIGNvbnN0IHRlc3RzID0gYXdhaXQgdGhpcy5ydW5UZXN0cyhwLm1hbmlmZXN0KTsKICAgIGNvbnN0IGZhaWxlZCA9IHRlc3RzLmZpbHRlcih0ID0+IHQuc3RhdHVzID09PSAnRkFJTCcpOwogICAgaWYgKGZhaWxlZC5sZW5ndGgpIHRocm93IG5ldyBFcnJvcignVGVzdHMgZmFpbGVkOiAnICsgZmFpbGVkLm1hcCh0ID0+IHQuZGV0YWlsKS5qb2luKCc7ICcpKTsKICAgIHAuc3RhdHVzID0gJ2VuYWJsZWQnOyBwLmVycm9ycyA9IFtdOyBwLnRlc3RzID0gdGVzdHM7CiAgICB0aGlzLl9zYXZlKHJlZyk7CiAgICByZXR1cm4gdGVzdHM7CiAgfSwKICBzZXRFbmFibGVkKG5hbWUsIG9uKSB7CiAgICBjb25zdCByZWcgPSB0aGlzLmxpc3QoKTsgY29uc3QgcCA9IHJlZy5maW5kKHggPT4geC5uYW1lID09PSBuYW1lKTsKICAgIGlmICghcCkgdGhyb3cgbmV3IEVycm9yKCdQbHVnaW4gbmFoaSBtaWxhJyk7CiAgICBpZiAob24gJiYgcC5zdGF0dXMgIT09ICdlbmFibGVkJyAmJiBwLnN0YXR1cyAhPT0gJ2Rpc2FibGVkJykgdGhyb3cgbmV3IEVycm9yKCdQZWhsZSBhcHByb3ZlIGthcm8nKTsKICAgIHAuc3RhdHVzID0gb24gPyAnZW5hYmxlZCcgOiAnZGlzYWJsZWQnOwogICAgdGhpcy5fc2F2ZShyZWcpOwogIH0sCiAgdW5pbnN0YWxsKG5hbWUpIHsgdGhpcy5fc2F2ZSh0aGlzLmxpc3QoKS5maWx0ZXIocCA9PiBwLm5hbWUgIT09IG5hbWUpKTsgfSwKCiAgLyogLS0tLS0tLS0tLSBBdWRpdCBsb2cgLS0tLS0tLS0tLSAqLwogIF9sb2cocGx1Z2luLCBpbnB1dCwgb3V0cHV0LCBlcnJvcikgewogICAgY29uc3QgbG9nID0gdGhpcy5fc3RvcmUuZ2V0KCdleGVjX2xvZycsIFtdKTsKICAgIGxvZy51bnNoaWZ0KHsgdHM6IERhdGUubm93KCksIHBsdWdpbiwgaW5wdXQsIG91dHB1dCwgZXJyb3I6IGVycm9yIHx8IG51bGwgfSk7CiAgICB0aGlzLl9zdG9yZS5zZXQoJ2V4ZWNfbG9nJywgbG9nLnNsaWNlKDAsIDEwMCkpOwogIH0sCiAgZXhlY0xvZygpIHsgcmV0dXJuIHRoaXMuX3N0b3JlLmdldCgnZXhlY19sb2cnLCBbXSk7IH0KfTsK
+/* Mini AI Phase 2 — Plugin system core.
+   Manifest format, registry (localStorage), validation, sandboxed execution.
+
+   Plugin manifest:
+   {
+     "name": "calculator", "version": "1.0.0",
+     "description": "...", "author": "...",
+     "permissions": ["compute"],          // compute | network | storage
+     "inputSchema": { "type": "object", "properties": {...}, "required": [...] },
+     "outputSchema": { "type": "object", "properties": {...} },
+     "code": "function run(input) { ... return {...}; }",  // must define run(input)
+     "tests": [{ "input": {...}, "expect": {...} }]
+   }
+
+   Lifecycle: draft → validated → tested → approved → installed → enabled/disabled
+   Execution: Web Worker sandbox, 5s timeout, no DOM, no secrets, no network (unless permission).
+*/
+'use strict';
+
+const Plugins = {
+  _store: {
+    get(k, d) { try { const v = localStorage.getItem('miniai_plugin_' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+    set(k, v) { try { localStorage.setItem('miniai_plugin_' + k, JSON.stringify(v)); } catch {} }
+  },
+
+  list() { return this._store.get('registry', []); },
+  _save(reg) { this._store.set('registry', reg); },
+
+  get(name) { return this.list().find(p => p.name === name) || null; },
+
+  /* ---------- Validation ---------- */
+  validate(manifest) {
+    const errors = [];
+    if (!manifest || typeof manifest !== 'object') return ['Manifest object hona chahiye'];
+    if (!manifest.name || !/^[a-z0-9_-]{2,40}$/.test(manifest.name)) errors.push('name: lowercase, 2-40 chars (a-z 0-9 _ -)');
+    if (!manifest.version || !/^\d+\.\d+\.\d+$/.test(manifest.version)) errors.push('version: semver (e.g. 1.0.0)');
+    if (!manifest.description || manifest.description.length < 10) errors.push('description: kam se kam 10 chars');
+    if (!Array.isArray(manifest.permissions)) errors.push('permissions: array hona chahiye');
+    else for (const p of manifest.permissions)
+      if (!['compute', 'network', 'storage'].includes(p)) errors.push('permission galat: ' + p);
+    if (!manifest.inputSchema || manifest.inputSchema.type !== 'object') errors.push('inputSchema: {type:"object",...} chahiye');
+    if (!manifest.code || typeof manifest.code !== 'string' || !manifest.code.includes('function run'))
+      errors.push('code me `function run(input)` hona chahiye');
+    // Dangerous patterns — block karo
+    const banned = ['eval(', 'Function(', 'importScripts', 'XMLHttpRequest', 'fetch(', 'WebSocket', 'localStorage', 'document', 'window', 'process', 'require('];
+    if (manifest.permissions && !manifest.permissions.includes('network')) {
+      for (const b of ['fetch(', 'XMLHttpRequest', 'WebSocket', 'importScripts'])
+        if (manifest.code.includes(b)) errors.push('network permission ke bina `' + b + '` allowed nahi');
+    }
+    for (const b of ['eval(', 'Function(', 'document', 'window.', 'process', 'require('])
+      if (manifest.code.includes(b)) errors.push('banned pattern: `' + b + '`');
+    return errors;
+  },
+
+  /* Validate input against JSON schema (simple subset) */
+  validateInput(schema, input) {
+    if (schema.type === 'object') {
+      if (typeof input !== 'object' || input === null) return 'input object hona chahiye';
+      for (const r of (schema.required || []))
+        if (!(r in input)) return 'missing required field: ' + r;
+      for (const [k, prop] of Object.entries(schema.properties || {})) {
+        if (k in input && prop.type) {
+          const t = typeof input[k];
+          const want = prop.type === 'integer' ? 'number' : prop.type;
+          if (t !== want) return `field ${k}: ${prop.type} chahiye, ${t} mila`;
+          if (prop.type === 'integer' && !Number.isInteger(input[k])) return `field ${k}: integer chahiye`;
+        }
+      }
+    }
+    return null;
+  },
+
+  /* ---------- Sandboxed execution (Web Worker, 5s timeout) ---------- */
+  async execute(name, input) {
+    const plugin = this.get(name);
+    if (!plugin) throw new Error('Plugin nahi mila: ' + name);
+    if (plugin.status !== 'enabled') throw new Error('Plugin enabled nahi hai: ' + name);
+
+    const schemaErr = this.validateInput(plugin.manifest.inputSchema, input);
+    if (schemaErr) throw new Error('Input invalid: ' + schemaErr);
+
+    return new Promise((resolve, reject) => {
+      const workerSrc = `
+        self.onmessage = function(e) {
+          try {
+            ${plugin.manifest.code}
+            if (typeof run !== 'function') throw new Error('run(input) defined nahi hai');
+            const out = run(e.data.input);
+            self.postMessage({ ok: true, output: out });
+          } catch (err) { self.postMessage({ ok: false, error: String(err.message || err) }); }
+        };`;
+      const blob = new Blob([workerSrc], { type: 'text/javascript' });
+      const worker = new Worker(URL.createObjectURL(blob));
+      const timer = setTimeout(() => { worker.terminate(); reject(new Error('Timeout: 5s se zyada laga')); }, 5000);
+      worker.onmessage = e => {
+        clearTimeout(timer); worker.terminate();
+        if (e.data.ok) { this._log(name, input, e.data.output, null); resolve(e.data.output); }
+        else { this._log(name, input, null, e.data.error); reject(new Error(e.data.error)); }
+      };
+      worker.onerror = e => { clearTimeout(timer); worker.terminate(); reject(new Error('Worker error')); };
+      worker.postMessage({ input });
+    });
+  },
+
+  /* ---------- Tests ---------- */
+  _deepEqual(a, b, tol = 0.01) {
+    if (typeof a === 'number' && typeof b === 'number') return Math.abs(a - b) <= tol;
+    if (Array.isArray(a) && Array.isArray(b)) return a.length === b.length && a.every((x, i) => this._deepEqual(x, b[i], tol));
+    if (a && b && typeof a === 'object' && typeof b === 'object') {
+      const ka = Object.keys(a), kb = Object.keys(b);
+      return ka.length === kb.length && ka.every(k => this._deepEqual(a[k], b[k], tol));
+    }
+    return a === b;
+  },
+  async runTests(manifest) {
+    const results = [];
+    const tests = manifest.tests || [];
+    if (!tests.length) return [{ name: 'no tests', status: 'NOT RUN', detail: 'Koi test defined nahi' }];
+    for (let i = 0; i < tests.length; i++) {
+      const t = tests[i];
+      try {
+        const out = await this._execCode(manifest.code, t.input, manifest.permissions || []);
+        const pass = this._deepEqual(out, t.expect);
+        results.push({ name: 'test ' + (i + 1), status: pass ? 'PASS' : 'FAIL',
+          detail: pass ? 'OK' : ('expected ' + JSON.stringify(t.expect) + ', got ' + JSON.stringify(out)) });
+      } catch (e) {
+        results.push({ name: 'test ' + (i + 1), status: 'FAIL', detail: e.message });
+      }
+    }
+    return results;
+  },
+
+  _execCode(code, input, permissions) {
+    return new Promise((resolve, reject) => {
+      const workerSrc = `self.onmessage=function(e){try{${code};const out=run(e.data.input);self.postMessage({ok:true,output:out});}catch(err){self.postMessage({ok:false,error:String(err.message||err)});}};`;
+      const worker = new Worker(URL.createObjectURL(new Blob([workerSrc], { type: 'text/javascript' })));
+      const timer = setTimeout(() => { worker.terminate(); reject(new Error('Timeout 5s')); }, 5000);
+      worker.onmessage = e => { clearTimeout(timer); worker.terminate(); e.data.ok ? resolve(e.data.output) : reject(new Error(e.data.error)); };
+      worker.onerror = () => { clearTimeout(timer); worker.terminate(); reject(new Error('Worker error')); };
+      worker.postMessage({ input });
+    });
+  },
+
+  /* ---------- Registry ops ---------- */
+  installDraft(manifest) {
+    const errors = this.validate(manifest);
+    const reg = this.list().filter(p => p.name !== manifest.name);
+    reg.push({ name: manifest.name, manifest, status: errors.length ? 'draft-invalid' : 'draft', errors, installedAt: Date.now() });
+    this._save(reg);
+    return errors;
+  },
+  async approve(name) {
+    const reg = this.list(); const p = reg.find(x => x.name === name);
+    if (!p) throw new Error('Plugin nahi mila');
+    const errors = this.validate(p.manifest);
+    if (errors.length) throw new Error('Validation failed: ' + errors.join('; '));
+    const tests = await this.runTests(p.manifest);
+    const failed = tests.filter(t => t.status === 'FAIL');
+    if (failed.length) throw new Error('Tests failed: ' + failed.map(t => t.detail).join('; '));
+    const passed = tests.filter(t => t.status === 'PASS');
+    if (!passed.length) throw new Error('Kam se kam 1 test PASS hona chahiye (koi test run nahi hua)');
+    p.status = 'enabled'; p.errors = []; p.tests = tests;
+    this._save(reg);
+    return tests;
+  },
+  setEnabled(name, on) {
+    const reg = this.list(); const p = reg.find(x => x.name === name);
+    if (!p) throw new Error('Plugin nahi mila');
+    if (on && p.status !== 'enabled' && p.status !== 'disabled') throw new Error('Pehle approve karo');
+    p.status = on ? 'enabled' : 'disabled';
+    this._save(reg);
+  },
+  uninstall(name) { this._save(this.list().filter(p => p.name !== name)); },
+
+  /* ---------- Audit log ---------- */
+  _log(plugin, input, output, error) {
+    const log = this._store.get('exec_log', []);
+    log.unshift({ ts: Date.now(), plugin, input, output, error: error || null });
+    this._store.set('exec_log', log.slice(0, 100));
+  },
+  execLog() { return this._store.get('exec_log', []); }
+};

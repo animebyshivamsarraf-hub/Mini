@@ -1,1 +1,66 @@
-IiIiTWluaSBBSSDigJQgc2VydmVyLXNpZGUgTExNIHByb3h5LgpLZXlzIHNpcmYgZW52aXJvbm1lbnQgdmFyaWFibGVzIHNlIGFhdGkgaGFpbi4gRnJvbnRlbmQga28ga2V5IGthYmhpIG5haGkgbWlsdGkuCgpFbnYgdmFycyAoVmVyY2VsIGRhc2hib2FyZCAvIENsb3VkZmxhcmUgbWUgc2V0IGthcm8pOgogIEdFTUlOSV9BUElfS0VZLCBHUk9RX0FQSV9LRVkKIiIiCmltcG9ydCBqc29uLCBvcywgdXJsbGliLnJlcXVlc3QKCmRlZiBfcG9zdCh1cmwsIGhlYWRlcnMsIGJvZHkpOgogICAgcmVxID0gdXJsbGliLnJlcXVlc3QuUmVxdWVzdCh1cmwsIGRhdGE9anNvbi5kdW1wcyhib2R5KS5lbmNvZGUoKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVhZGVycz17KipoZWFkZXJzLCAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nfSkKICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9NjApIGFzIHI6CiAgICAgICAgcmV0dXJuIGpzb24ubG9hZHMoci5yZWFkKCkuZGVjb2RlKCkpCgpkZWYgaGFuZGxlcihyZXF1ZXN0KToKICAgICMgVmVyY2VsIFB5dGhvbiBydW50aW1lOiByZXF1ZXN0Lmpzb24oKQogICAgdHJ5OgogICAgICAgIGRhdGEgPSByZXF1ZXN0Lmpzb24oKSBpZiBoYXNhdHRyKHJlcXVlc3QsICdqc29uJykgZWxzZSBqc29uLmxvYWRzKHJlcXVlc3QuYm9keSkKICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgcmV0dXJuIF9yZXNwKDQwMCwgeydlcnJvcic6ICdJbnZhbGlkIEpTT04gYm9keSd9KQoKICAgIHByb3ZpZGVyID0gKGRhdGEuZ2V0KCdwcm92aWRlcicpIG9yICcnKS5sb3dlcigpCiAgICBtZXNzYWdlcyA9IGRhdGEuZ2V0KCdtZXNzYWdlcycpIG9yIFtdCiAgICBpZiBwcm92aWRlciBub3QgaW4gKCdnZW1pbmknLCAnZ3JvcScpOgogICAgICAgIHJldHVybiBfcmVzcCg0MDAsIHsnZXJyb3InOiAncHJvdmlkZXIgbXVzdCBiZSBnZW1pbmkgb3IgZ3JvcSd9KQogICAgaWYgbm90IGlzaW5zdGFuY2UobWVzc2FnZXMsIGxpc3QpIG9yIG5vdCBtZXNzYWdlczoKICAgICAgICByZXR1cm4gX3Jlc3AoNDAwLCB7J2Vycm9yJzogJ21lc3NhZ2VzIGtoYWFsaSBoYWluJ30pCgogICAgIyBCYXNpYyBTU1JGIGd1YXJkOiBzaXJmIGFsbG93bGlzdGVkIGhvc3RzCiAgICB0cnk6CiAgICAgICAgaWYgcHJvdmlkZXIgPT0gJ2dlbWluaSc6CiAgICAgICAgICAgIGtleSA9IG9zLmVudmlyb24uZ2V0KCdHRU1JTklfQVBJX0tFWScsICcnKQogICAgICAgICAgICBpZiBub3Qga2V5OgogICAgICAgICAgICAgICAgcmV0dXJuIF9yZXNwKDUwMywgeydlcnJvcic6ICdHZW1pbmkga2V5IHNlcnZlciBwYXIgc2V0IG5haGkgaGFpIChHRU1JTklfQVBJX0tFWSkuJ30pCiAgICAgICAgICAgIHN5c190ZXh0ID0gJ1R1bSBNaW5pIEFJIGhvIOKAlCBoZWxwZnVsIEFJIGFzc2lzdGFudC4gSGluZGkvSGluZ2xpc2ggbWUgamF3YWIgZG8gamFiIHVzZXIgdXNpIG1lIGJvbGUuJwogICAgICAgICAgICBjb250ZW50cyA9IFt7J3JvbGUnOiAnbW9kZWwnIGlmIG0uZ2V0KCdyb2xlJykgPT0gJ2Fzc2lzdGFudCcgZWxzZSAndXNlcicsCiAgICAgICAgICAgICAgICAgICAgICAgICAncGFydHMnOiBbeyd0ZXh0Jzogc3RyKG0uZ2V0KCdjb250ZW50JywgJycpKVs6ODAwMF19XX0gZm9yIG0gaW4gbWVzc2FnZXNdCiAgICAgICAgICAgIG91dCA9IF9wb3N0KCdodHRwczovL2dlbmVyYXRpdmVsYW5ndWFnZS5nb29nbGVhcGlzLmNvbS92MWJldGEvbW9kZWxzL2dlbWluaS0yLjAtZmxhc2g6Z2VuZXJhdGVDb250ZW50P2tleT0nICsga2V5LAogICAgICAgICAgICAgICAgICAgICAgICB7fSwgeydzeXN0ZW1faW5zdHJ1Y3Rpb24nOiB7J3BhcnRzJzogW3sndGV4dCc6IHN5c190ZXh0fV19LCAnY29udGVudHMnOiBjb250ZW50c30pCiAgICAgICAgICAgIHRleHQgPSAnJy5qb2luKHAuZ2V0KCd0ZXh0JywgJycpIGZvciBwIGluIChvdXQuZ2V0KCdjYW5kaWRhdGVzJywgW3t9XSlbMF0uZ2V0KCdjb250ZW50Jywge30pLmdldCgncGFydHMnLCBbXSkpKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIGtleSA9IG9zLmVudmlyb24uZ2V0KCdHUk9RX0FQSV9LRVknLCAnJykKICAgICAgICAgICAgaWYgbm90IGtleToKICAgICAgICAgICAgICAgIHJldHVybiBfcmVzcCg1MDMsIHsnZXJyb3InOiAnR3JvcSBrZXkgc2VydmVyIHBhciBzZXQgbmFoaSBoYWkgKEdST1FfQVBJX0tFWSkuJ30pCiAgICAgICAgICAgIG91dCA9IF9wb3N0KCdodHRwczovL2FwaS5ncm9xLmNvbS9vcGVuYWkvdjEvY2hhdC9jb21wbGV0aW9ucycsCiAgICAgICAgICAgICAgICAgICAgICAgIHsnQXV0aG9yaXphdGlvbic6ICdCZWFyZXIgJyArIGtleX0sCiAgICAgICAgICAgICAgICAgICAgICAgIHsnbW9kZWwnOiAnbGxhbWEtMy4zLTcwYi12ZXJzYXRpbGUnLAogICAgICAgICAgICAgICAgICAgICAgICAgJ21lc3NhZ2VzJzogW3sncm9sZSc6ICdzeXN0ZW0nLCAnY29udGVudCc6ICdUdW0gTWluaSBBSSBobyDigJQgaGVscGZ1bCBBSSBhc3Npc3RhbnQuIEhpbmRpL0hpbmdsaXNoIG1lIGphd2FiIGRvLid9XQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKyBbeydyb2xlJzogbS5nZXQoJ3JvbGUnKSwgJ2NvbnRlbnQnOiBzdHIobS5nZXQoJ2NvbnRlbnQnLCAnJykpWzo4MDAwXX0gZm9yIG0gaW4gbWVzc2FnZXNdfSkKICAgICAgICAgICAgdGV4dCA9IChvdXQuZ2V0KCdjaG9pY2VzJywgW3t9XSlbMF0uZ2V0KCdtZXNzYWdlJywge30pLmdldCgnY29udGVudCcpIG9yICcnKQogICAgICAgIGlmIG5vdCB0ZXh0LnN0cmlwKCk6CiAgICAgICAgICAgIHJldHVybiBfcmVzcCg1MDIsIHsnZXJyb3InOiAnUHJvdmlkZXIgc2Uga2hhYWxpIGphd2FiJ30pCiAgICAgICAgcmV0dXJuIF9yZXNwKDIwMCwgeyd0ZXh0JzogdGV4dH0pCiAgICBleGNlcHQgdXJsbGliLmVycm9yLkhUVFBFcnJvciBhcyBlOgogICAgICAgIHJldHVybiBfcmVzcCg1MDIsIHsnZXJyb3InOiBmJ1Byb3ZpZGVyIGVycm9yOiBIVFRQIHtlLmNvZGV9J30pCiAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGU6CiAgICAgICAgcmV0dXJuIF9yZXNwKDUwMCwgeydlcnJvcic6ICdQcm94eSBlcnJvcjogJyArIHN0cihlKVs6MTIwXX0pCgpkZWYgX3Jlc3Aoc3RhdHVzLCBvYmopOgogICAgYm9keSA9IGpzb24uZHVtcHMob2JqKQogICAgIyBWZXJjZWwgUHl0aG9uOiByZXR1cm4gZGljdAogICAgcmV0dXJuIHsnc3RhdHVzQ29kZSc6IHN0YXR1cywgJ2hlYWRlcnMnOiB7J0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJ30sICdib2R5JzogYm9keX0KCiMgVmVyY2VsIHNlcnZlcmxlc3MgZW50cnkKZGVmIG1haW4ocmVxdWVzdCk6CiAgICByZXR1cm4gaGFuZGxlcihyZXF1ZXN0KQo=
+"""Mini AI — server-side LLM proxy.
+Keys sirf environment variables se aati hain. Frontend ko key kabhi nahi milti.
+
+Env vars (Vercel dashboard / Cloudflare me set karo):
+  GEMINI_API_KEY, GROQ_API_KEY
+"""
+import json, os, urllib.request
+
+def _post(url, headers, body):
+    req = urllib.request.Request(url, data=json.dumps(body).encode(),
+                                 headers={**headers, 'Content-Type': 'application/json'})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read().decode())
+
+def handler(request):
+    # Vercel Python runtime: request.json()
+    try:
+        data = request.json() if hasattr(request, 'json') else json.loads(request.body)
+    except Exception:
+        return _resp(400, {'error': 'Invalid JSON body'})
+
+    provider = (data.get('provider') or '').lower()
+    messages = data.get('messages') or []
+    if provider not in ('gemini', 'groq'):
+        return _resp(400, {'error': 'provider must be gemini or groq'})
+    if not isinstance(messages, list) or not messages:
+        return _resp(400, {'error': 'messages khaali hain'})
+
+    # Basic SSRF guard: sirf allowlisted hosts
+    try:
+        if provider == 'gemini':
+            key = os.environ.get('GEMINI_API_KEY', '')
+            if not key:
+                return _resp(503, {'error': 'Gemini key server par set nahi hai (GEMINI_API_KEY).'})
+            sys_text = 'Tum Mini AI ho — helpful AI assistant. Hindi/Hinglish me jawab do jab user usi me bole.'
+            contents = [{'role': 'model' if m.get('role') == 'assistant' else 'user',
+                         'parts': [{'text': str(m.get('content', ''))[:8000]}]} for m in messages]
+            out = _post('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + key,
+                        {}, {'system_instruction': {'parts': [{'text': sys_text}]}, 'contents': contents})
+            text = ''.join(p.get('text', '') for p in (out.get('candidates', [{}])[0].get('content', {}).get('parts', [])))
+        else:
+            key = os.environ.get('GROQ_API_KEY', '')
+            if not key:
+                return _resp(503, {'error': 'Groq key server par set nahi hai (GROQ_API_KEY).'})
+            out = _post('https://api.groq.com/openai/v1/chat/completions',
+                        {'Authorization': 'Bearer ' + key},
+                        {'model': 'llama-3.3-70b-versatile',
+                         'messages': [{'role': 'system', 'content': 'Tum Mini AI ho — helpful AI assistant. Hindi/Hinglish me jawab do.'}]
+                                     + [{'role': m.get('role'), 'content': str(m.get('content', ''))[:8000]} for m in messages]})
+            text = (out.get('choices', [{}])[0].get('message', {}).get('content') or '')
+        if not text.strip():
+            return _resp(502, {'error': 'Provider se khaali jawab'})
+        return _resp(200, {'text': text})
+    except urllib.error.HTTPError as e:
+        return _resp(502, {'error': f'Provider error: HTTP {e.code}'})
+    except Exception as e:
+        return _resp(500, {'error': 'Proxy error: ' + str(e)[:120]})
+
+def _resp(status, obj):
+    body = json.dumps(obj)
+    # Vercel Python: return dict
+    return {'statusCode': status, 'headers': {'Content-Type': 'application/json'}, 'body': body}
+
+# Vercel serverless entry
+def main(request):
+    return handler(request)

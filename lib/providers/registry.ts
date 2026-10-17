@@ -19,8 +19,36 @@ export function listProviders(): AIProvider[] {
   return [...providers];
 }
 
+/**
+ * User-defined alias map (2026-10-18): "Cloud AI", "Claude", "Claude AI",
+ * "क्लाउड AI" ALL mean Anthropic's Claude. Never interpret "Cloud AI" as
+ * general cloud computing or switch providers on name alone.
+ */
+const PROVIDER_ALIASES: Record<string, string> = {
+  // Anthropic Claude aliases — normalized lowercase, trimmed
+  "claude": "anthropic",
+  "claude ai": "anthropic",
+  "cloud ai": "anthropic",
+  "क्लाउड ai": "anthropic",
+  "क्लाउड एआई": "anthropic",
+  "anthropic claude": "anthropic",
+  "anthropic": "anthropic",
+  // Other providers — exact IDs plus common display variants
+  "groq": "groq",
+  "openai": "openai",
+  "chatgpt": "openai",
+  "gpt": "openai",
+};
+
+/** Resolve a user-supplied provider name to a canonical provider ID. */
+export function resolveProviderId(input: string): string {
+  const key = input.trim().toLowerCase();
+  return PROVIDER_ALIASES[key] ?? input.trim();
+}
+
 export function getProvider(id: string): AIProvider | undefined {
-  return providers.find((p) => p.id === id);
+  const resolved = resolveProviderId(id);
+  return providers.find((p) => p.id === resolved);
 }
 
 /** Summary for UI/API — no secrets, just honest status */

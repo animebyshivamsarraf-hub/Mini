@@ -22,6 +22,7 @@ import {
   providerStatusSummary,
   getProvider,
   listProviders,
+  resolveProviderId,
 } from "@/lib/providers/registry";
 import {
   addStep,
@@ -101,6 +102,10 @@ export async function POST(req: NextRequest) {
     messages?: unknown;
     systemPrompt?: string;
     maxTokens?: number;
+    requestId?: string;
+    conversationId?: string;
+    source?: string;
+    requireCloud?: boolean;
   };
   try {
     body = await req.json();
@@ -165,26 +170,60 @@ export async function POST(req: NextRequest) {
       case "forward": {
         // Direct provider call: prompt goes VERBATIM, no planner rewrite.
         // Records exactly what was sent + raw response in the step.
+        // Cloud AI routing: requireCloud=true means this MUST hit a real
+        // provider — never fall back to offline responses silently.
         if (!body.prompt || typeof body.prompt !== "string") {
           return NextResponse.json(
             { ok: false, error: "prompt (string) is required." },
             { status: 400 }
           );
         }
+        // Request correlation metadata (from ChatGPT via Mini 1 MCP)
+        const requestId =
+          typeof body.requestId === "string" && body.requestId.length > 0
+            ? body.requestId.slice(0, 128)
+            : `req_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 10)}`;
+        const conversationId =
+          typeof body.conversationId === "string"
+            ? body.conversationId.slice(0, 128)
+            : undefined;
+        const source =
+          typeof body.source === "string" && body.source.length > 0
+            ? body.source.slice(0, 64)
+            : "chatgpt";
+        const requireCloud = body.requireCloud !== false; // default true
         const providerId =
           typeof body.providerId === "string" && body.providerId.length > 0
-            ? body.providerId
+            ? resolveProviderId(body.providerId)
             : listProviders().find((p) => p.getStatus() === "configured")?.id;
         if (!providerId) {
           return NextResponse.json(
-            { ok: false, error: "No AI provider is configured." },
+            {
+              ok: false,
+              error: "No AI provider is configured.",
+              errorCode: "NOT_CONFIGURED",
+              request_id: requestId,
+              source,
+              ...(conversationId ? { conversation_id: conversationId } : {}),
+              used_llm: false,
+              status: "failed",
+            },
             { status: 503 }
           );
         }
         const provider = getProvider(providerId);
         if (!provider) {
           return NextResponse.json(
-            { ok: false, error: `Unknown provider: ${providerId}` },
+            {
+              ok: false,
+              error: `Unknown provider: ${providerId}`,
+              errorCode: "UNKNOWN_PROVIDER",
+              request_id: requestId,
+              source,
+              ...(conversationId ? { conversation_id: conversationId } : {}),
+              used_llm: false,
+              status: "failed",
+            },
             { status: 400 }
           );
         }
@@ -192,8 +231,15 @@ export async function POST(req: NextRequest) {
           return NextResponse.json(
             {
               ok: false,
-              error: `Provider ${providerId} is not configured.`,
+              error: `Provider ${providerId} is not configured. Set the API key in Vercel environment variables.`,
               errorCode: "NOT_CONFIGURED",
+              request_id: requestId,
+              provider: providerId,
+              provider_display: "Anthropic Claude",
+              source,
+              ...(conversationId ? { conversation_id: conversationId } : {}),
+              used_llm: false,
+              status: "failed",
             },
             { status: 503 }
           );
@@ -227,7 +273,16 @@ export async function POST(req: NextRequest) {
           ok: result.ok,
           task: sanitizeTask(getTask(task.id)!),
           provider: providerId,
+          provider_display: provider.displayName,
           model: result.model,
+          request_id: requestId,
+          source,
+          ...(conversationId ? { conversation_id: conversationId } : {}),
+          used_llm: result.ok,
+          status: result.ok ? "completed" : "failed",
+          ...(result.ok
+            ? {}
+            : { error: result.error, errorCode: result.errorCode }),
         });
       }
 

@@ -4,6 +4,9 @@
  * Actions:
  *   { action: "start", prompt }  → create task (does NOT auto-run; client drives steps)
  *   { action: "step", taskId }   → run ONE coordinator step (Mini → provider → record)
+ *   { action: "forward", prompt, providerId? } → direct provider call, prompt sent VERBATIM
+ *   { action: "transfer", messages, providerId?, systemPrompt?, maxTokens? } → full chat
+ *       transcript sent VERBATIM to target provider ("poora chat idhar se udhar")
  *   { action: "status", taskId } → get task + steps + provider statuses
  *   { action: "history" }        → list recent tasks
  *   { action: "cancel", taskId } → cancel a running task
@@ -15,13 +18,21 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { isRateLimited, getClientIp } from "@/lib/rate-limit";
-import { providerStatusSummary } from "@/lib/providers/registry";
 import {
+  providerStatusSummary,
+  getProvider,
+  listProviders,
+} from "@/lib/providers/registry";
+import {
+  addStep,
+  finishStep,
   getTask,
+  getTaskAsync,
   listTasks,
   setTaskStatus,
 } from "@/lib/task-engine";
 import { runOneStep, startTask } from "@/lib/coordinator";
+import { validateTransferMessages } from "@/lib/validation";
 
 function unauthorized() {
   return NextResponse.json(
@@ -52,6 +63,7 @@ function sanitizeTask(task: NonNullable<ReturnType<typeof getTask>>) {
     maxSteps: task.maxSteps,
     result: task.result,
     error: task.error,
+    errorCode: task.errorCode,
     createdAt: task.createdAt,
     updatedAt: task.updatedAt,
     steps: task.steps.map((s) => ({
@@ -81,7 +93,15 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  let body: { action?: string; prompt?: string; taskId?: string };
+  let body: {
+    action?: string;
+    prompt?: string;
+    taskId?: string;
+    providerId?: string;
+    messages?: unknown;
+    systemPrompt?: string;
+    maxTokens?: number;
+  };
   try {
     body = await req.json();
   } catch {
@@ -124,6 +144,14 @@ export async function POST(req: NextRequest) {
             { status: 400 }
           );
         }
+        // Ensure task is in memory (loads from DB on cache miss)
+        const existing = await getTaskAsync(body.taskId);
+        if (!existing) {
+          return NextResponse.json(
+            { ok: false, error: "Task not found." },
+            { status: 404 }
+          );
+        }
         const task = await runOneStep(body.taskId);
         if (!task) {
           return NextResponse.json(
@@ -134,6 +162,160 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ ok: true, task: sanitizeTask(task) });
       }
 
+      case "forward": {
+        // Direct provider call: prompt goes VERBATIM, no planner rewrite.
+        // Records exactly what was sent + raw response in the step.
+        if (!body.prompt || typeof body.prompt !== "string") {
+          return NextResponse.json(
+            { ok: false, error: "prompt (string) is required." },
+            { status: 400 }
+          );
+        }
+        const providerId =
+          typeof body.providerId === "string" && body.providerId.length > 0
+            ? body.providerId
+            : listProviders().find((p) => p.getStatus() === "configured")?.id;
+        if (!providerId) {
+          return NextResponse.json(
+            { ok: false, error: "No AI provider is configured." },
+            { status: 503 }
+          );
+        }
+        const provider = getProvider(providerId);
+        if (!provider) {
+          return NextResponse.json(
+            { ok: false, error: `Unknown provider: ${providerId}` },
+            { status: 400 }
+          );
+        }
+        if (provider.getStatus() !== "configured") {
+          return NextResponse.json(
+            {
+              ok: false,
+              error: `Provider ${providerId} is not configured.`,
+              errorCode: "NOT_CONFIGURED",
+            },
+            { status: 503 }
+          );
+        }
+        const task = startTask(body.prompt);
+        setTaskStatus(task.id, "running");
+        const step = addStep(task.id, providerId, body.prompt);
+        const result = await provider.complete(
+          [{ role: "user", content: body.prompt }],
+          { maxTokens: 2048, timeoutMs: 60_000 }
+        );
+        if (step) {
+          finishStep(task.id, step.id, {
+            status: result.ok ? "succeeded" : "failed",
+            output: result.ok ? result.text : undefined,
+            errorCode: result.ok ? undefined : result.errorCode,
+            error: result.ok ? undefined : result.error,
+            model: result.model,
+            latencyMs: result.latencyMs,
+          });
+        }
+        if (result.ok) {
+          setTaskStatus(task.id, "completed", { result: result.text });
+        } else {
+          setTaskStatus(task.id, "failed", {
+            error: result.error,
+            errorCode: result.errorCode,
+          });
+        }
+        return NextResponse.json({
+          ok: result.ok,
+          task: sanitizeTask(getTask(task.id)!),
+          provider: providerId,
+          model: result.model,
+        });
+      }
+
+      case "transfer": {
+        // Poora chat idhar se udhar: full transcript → target provider, VERBATIM.
+        // Same honesty contract as forward: no planner rewrite, exact messages
+        // recorded in the step, raw response stored as the task result.
+        const validation = validateTransferMessages(body.messages);
+        if (!validation.ok) {
+          return NextResponse.json(
+            { ok: false, error: validation.error, errorCode: "INVALID_MESSAGES" },
+            { status: 400 }
+          );
+        }
+        const messages = validation.messages;
+        const providerId =
+          typeof body.providerId === "string" && body.providerId.length > 0
+            ? body.providerId
+            : listProviders().find((p) => p.getStatus() === "configured")?.id;
+        if (!providerId) {
+          return NextResponse.json(
+            { ok: false, error: "No AI provider is configured." },
+            { status: 503 }
+          );
+        }
+        const provider = getProvider(providerId);
+        if (!provider) {
+          return NextResponse.json(
+            { ok: false, error: `Unknown provider: ${providerId}` },
+            { status: 400 }
+          );
+        }
+        if (provider.getStatus() !== "configured") {
+          return NextResponse.json(
+            {
+              ok: false,
+              error: `Provider ${providerId} is not configured.`,
+              errorCode: "NOT_CONFIGURED",
+            },
+            { status: 503 }
+          );
+        }
+        const systemPrompt =
+          typeof body.systemPrompt === "string" &&
+          body.systemPrompt.trim().length > 0
+            ? body.systemPrompt.trim().slice(0, 4000)
+            : undefined;
+        const maxTokens =
+          typeof body.maxTokens === "number" && body.maxTokens > 0
+            ? Math.min(Math.floor(body.maxTokens), 8192)
+            : 2048;
+        const task = startTask(
+          `Chat transfer: ${messages.length} messages → ${providerId}`
+        );
+        setTaskStatus(task.id, "running");
+        const step = addStep(task.id, providerId, JSON.stringify(messages));
+        const result = await provider.complete(messages, {
+          maxTokens,
+          timeoutMs: 60_000,
+          ...(systemPrompt ? { systemPrompt } : {}),
+        });
+        if (step) {
+          finishStep(task.id, step.id, {
+            status: result.ok ? "succeeded" : "failed",
+            output: result.ok ? result.text : undefined,
+            errorCode: result.ok ? undefined : result.errorCode,
+            error: result.ok ? undefined : result.error,
+            model: result.model,
+            latencyMs: result.latencyMs,
+          });
+        }
+        if (result.ok) {
+          setTaskStatus(task.id, "completed", { result: result.text });
+        } else {
+          setTaskStatus(task.id, "failed", {
+            error: result.error,
+            errorCode: result.errorCode,
+          });
+        }
+        return NextResponse.json({
+          ok: result.ok,
+          task: sanitizeTask(getTask(task.id)!),
+          provider: providerId,
+          model: result.model,
+          transferredMessages: messages.length,
+        });
+      }
+
       case "status": {
         if (!body.taskId) {
           return NextResponse.json(
@@ -141,7 +323,8 @@ export async function POST(req: NextRequest) {
             { status: 400 }
           );
         }
-        const task = getTask(body.taskId);
+        // Async: falls back to PostgreSQL if not in this instance's memory
+        const task = await getTaskAsync(body.taskId);
         if (!task) {
           return NextResponse.json(
             { ok: false, error: "Task not found." },
@@ -198,7 +381,7 @@ export async function POST(req: NextRequest) {
           {
             ok: false,
             error:
-              "Unknown action. Use: start | step | status | history | cancel | providers.",
+              "Unknown action. Use: start | step | status | history | cancel | providers | forward | transfer.",
           },
           { status: 400 }
         );

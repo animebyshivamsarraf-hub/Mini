@@ -19,7 +19,7 @@ import {
 
 export type CoordinatorDecision =
   | { kind: "run_provider"; providerId: string; input: string; reason: string }
-  | { kind: "complete"; result: string; reason: string }
+  | { kind: "complete"; result: string; reason: string; providerId: string; model?: string; latencyMs?: number }
   | { kind: "fail"; error: string; reason: string }
   | { kind: "needs_setup"; missing: string[]; reason: string }
   | { kind: "needs_approval"; question: string; reason: string };
@@ -107,6 +107,9 @@ export async function decideNextStep(
       kind: "complete",
       result: parsed.result ?? "Task completed.",
       reason: "planner_verified_done",
+      providerId: planner.id,
+      model: plan.model,
+      latencyMs: plan.latencyMs,
     };
   }
 
@@ -151,9 +154,20 @@ export async function runOneStep(taskId: string): Promise<OrchestratedTask | und
       setTaskStatus(taskId, "failed", { error: decision.error });
       return getTask(taskId);
 
-    case "complete":
+    case "complete": {
+      // Record the planner's work as a step (fixes empty steps array + model attribution)
+      const step = addStep(taskId, decision.providerId, `Coordinator finalization: ${task.prompt.slice(0, 200)}`);
+      if (step) {
+        finishStep(taskId, step.id, {
+          status: "succeeded",
+          output: decision.result,
+          model: decision.model,
+          latencyMs: decision.latencyMs,
+        });
+      }
       setTaskStatus(taskId, "completed", { result: decision.result });
       return getTask(taskId);
+    }
 
     case "needs_approval":
       setTaskStatus(taskId, "waiting_approval", { error: decision.question });
@@ -190,9 +204,38 @@ export async function runOneStep(taskId: string): Promise<OrchestratedTask | und
         setTaskStatus(taskId, "failed", {
           error: `Step failed on ${decision.providerId}: ${result.error}`,
         });
+        return getTask(taskId);
       }
-      // else: stays "running" — next runOneStep() call continues the loop
 
+      // Step succeeded — ask planner if the goal is now achieved.
+      // This prevents tasks stuck in "running" after their final step.
+      const followUp = await decideNextStep(getTask(taskId)!);
+      if (followUp.kind === "complete") {
+        const doneStep = addStep(
+          taskId,
+          followUp.providerId,
+          `Coordinator finalization: ${getTask(taskId)!.prompt.slice(0, 200)}`
+        );
+        if (doneStep) {
+          finishStep(taskId, doneStep.id, {
+            status: "succeeded",
+            output: followUp.result,
+            model: followUp.model,
+            latencyMs: followUp.latencyMs,
+          });
+        }
+        setTaskStatus(taskId, "completed", { result: followUp.result });
+        return getTask(taskId);
+      }
+      if (followUp.kind === "fail") {
+        setTaskStatus(taskId, "failed", { error: followUp.error });
+        return getTask(taskId);
+      }
+      if (followUp.kind === "needs_approval") {
+        setTaskStatus(taskId, "waiting_approval", { error: followUp.question });
+        return getTask(taskId);
+      }
+      // else: planner wants another provider step — stays "running"
       return getTask(taskId);
     }
   }

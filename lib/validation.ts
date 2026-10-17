@@ -32,3 +32,75 @@ export function validatePrompt(input: unknown): ValidationResult {
   }
   return { ok: true, prompt: trimmed };
 }
+
+/**
+ * Chat-transfer message validation ("poora chat idhar se udhar").
+ * A transcript is an array of { role, content } objects sent VERBATIM
+ * to the target provider — no rewrite, same honesty contract as forward.
+ */
+
+export const TRANSFER_MAX_MESSAGES = 100;
+export const TRANSFER_MAX_MESSAGE_CHARS = 8000;
+
+export type TransferMessageRole = "system" | "user" | "assistant";
+
+export interface TransferMessage {
+  role: TransferMessageRole;
+  content: string;
+}
+
+export type TransferValidationResult =
+  | { ok: true; messages: TransferMessage[] }
+  | { ok: false; error: string };
+
+const VALID_TRANSFER_ROLES: ReadonlySet<string> = new Set([
+  "system",
+  "user",
+  "assistant",
+]);
+
+export function validateTransferMessages(
+  input: unknown
+): TransferValidationResult {
+  if (!Array.isArray(input)) {
+    return { ok: false, error: "messages must be an array" };
+  }
+  if (input.length === 0) {
+    return { ok: false, error: "messages must not be empty" };
+  }
+  if (input.length > TRANSFER_MAX_MESSAGES) {
+    return {
+      ok: false,
+      error: `messages must not exceed ${TRANSFER_MAX_MESSAGES} messages`,
+    };
+  }
+  const messages: TransferMessage[] = [];
+  for (let i = 0; i < input.length; i++) {
+    const m = input[i] as Record<string, unknown> | null;
+    if (typeof m !== "object" || m === null) {
+      return { ok: false, error: `messages[${i}] must be an object` };
+    }
+    const role = m.role;
+    if (typeof role !== "string" || !VALID_TRANSFER_ROLES.has(role)) {
+      return {
+        ok: false,
+        error: `messages[${i}].role must be one of: system, user, assistant`,
+      };
+    }
+    const content = m.content;
+    if (typeof content !== "string" || content.trim().length === 0) {
+      return {
+        ok: false,
+        error: `messages[${i}].content must be a non-empty string`,
+      };
+    }
+    if (content.length > TRANSFER_MAX_MESSAGE_CHARS) {
+      return {
+        ok: false,
+        error: `messages[${i}].content must not exceed ${TRANSFER_MAX_MESSAGE_CHARS} characters`,
+      };
+    }
+    messages.push({ role: role as TransferMessageRole, content });
+  }
+  return { ok: true, messages };
+}

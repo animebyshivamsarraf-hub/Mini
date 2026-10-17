@@ -7,9 +7,22 @@
  * Every step's input/output/status is recorded. Nothing is marked
  * completed unless a REAL result was verified.
  *
- * Persistence: in-memory by default (honest about it). When DATABASE_URL
- * is configured, steps persist via lib/task-store.ts (Phase F).
+ * Persistence: in-memory by default. When DATABASE_URL is configured,
+ * tasks + steps are also saved to PostgreSQL via lib/orchestration-store.ts
+ * (fire-and-forget after each mutation; loaded on cache miss).
  */
+
+// Lazy import to avoid circular deps + keep sync API
+function persistTask(taskId: string): void {
+  try {
+    const task = tasks.get(taskId);
+    if (!task) return;
+    // Fire-and-forget: don't block the response on DB write
+    import("./orchestration-store").then((m) => m.saveTask(task)).catch(() => {});
+  } catch {
+    // Persistence is best-effort; in-memory remains source of truth
+  }
+}
 
 export type TaskStatus =
   | "queued"
@@ -50,6 +63,7 @@ export interface OrchestratedTask {
   /** Final verified result (only when status=completed) */
   result?: string;
   error?: string;
+  errorCode?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -78,11 +92,32 @@ export function createOrchestratedTask(
     updatedAt: now,
   };
   tasks.set(task.id, task);
+  persistTask(task.id);
   return task;
 }
 
 export function getTask(id: string): OrchestratedTask | undefined {
   return tasks.get(id);
+}
+
+/**
+ * Async get: checks in-memory first, then PostgreSQL on cache miss.
+ * Use in API routes where the task may have been created by another instance.
+ */
+export async function getTaskAsync(id: string): Promise<OrchestratedTask | undefined> {
+  const cached = tasks.get(id);
+  if (cached) return cached;
+  try {
+    const m = await import("./orchestration-store");
+    const loaded = await m.loadTask(id);
+    if (loaded) {
+      tasks.set(loaded.id, loaded);
+      return loaded;
+    }
+  } catch {
+    // DB unavailable — return undefined
+  }
+  return undefined;
 }
 
 export function listTasks(limit = 20): OrchestratedTask[] {
@@ -107,6 +142,7 @@ export function addStep(
   };
   task.steps.push(step);
   task.updatedAt = new Date().toISOString();
+  persistTask(taskId);
   return step;
 }
 
@@ -133,19 +169,22 @@ export function finishStep(
   step.latencyMs = outcome.latencyMs;
   step.finishedAt = new Date().toISOString();
   task.updatedAt = step.finishedAt;
+  persistTask(taskId);
 }
 
 export function setTaskStatus(
   taskId: string,
   status: TaskStatus,
-  extra?: { result?: string; error?: string }
+  extra?: { result?: string; error?: string; errorCode?: string }
 ): void {
   const task = tasks.get(taskId);
   if (!task) return;
   task.status = status;
   if (extra?.result !== undefined) task.result = extra.result;
   if (extra?.error !== undefined) task.error = extra.error;
+  if (extra?.errorCode !== undefined) task.errorCode = extra.errorCode;
   task.updatedAt = new Date().toISOString();
+  persistTask(taskId);
 }
 
 /** For tests: clear all in-memory tasks */

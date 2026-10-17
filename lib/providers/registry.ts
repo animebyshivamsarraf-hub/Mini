@@ -6,10 +6,13 @@
  */
 import type { AIProvider } from "./types";
 import { groqProvider } from "./groq";
+import { openaiProvider } from "./openai";
+import { anthropicProvider } from "./anthropic";
 
 const providers: AIProvider[] = [
   groqProvider,
-  // Future: openaiProvider, anthropicProvider — each needs its own API key.
+  openaiProvider,
+  anthropicProvider,
 ];
 
 export function listProviders(): AIProvider[] {
